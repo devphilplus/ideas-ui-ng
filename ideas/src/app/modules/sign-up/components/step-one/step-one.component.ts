@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-step-one',
+  templateUrl: './step-one.component.html',
+  styleUrls: ['./step-one.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class StepOneComponent implements OnInit {
 
   signupForm = new FormGroup({
     emails: new FormGroup({
@@ -25,4 +25,5 @@ export class SignUpComponent implements OnInit {
   signup(): void {
     console.log('SignUpComponent::signup()');
   }
+
 }

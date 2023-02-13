@@ -1,15 +1,24 @@
-<div class="component-sign-up">
+<div class="component-step-2">
     <div class="container-content">
         <div class="content">
             <div class="pane pane-1">
                 <a title="Return to Home" routerLink="">Return Home</a>
                 <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="signup()">
-                    <header>Sign Up</header> 
+                    <header>Sign Up</header>
                     <fieldset formGroupName="emails">
                         <mat-form-field appearance="fill">
                             <mat-label>Email</mat-label>
-                            <input type="email" id="email1" name="email1" required matInput class="field-email field-required" formControlName="email1"/>
-                            <mat-hint>An email will be sent to the email address to continue the sign up process</mat-hint>
+                            <input type="email" id="email1" name="email1" required readonly matInput class="field-email field-required" formControlName="email1"/>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset formGroupName="passwords">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="password" id="pw1" name="pw1" required readonly matInput class="field-email field-required" formControlName="pw1"/>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="password" id="pw2" name="pw2" required readonly matInput class="field-email field-required" formControlName="pw2"/>
                         </mat-form-field>
                     </fieldset>
                     <fieldset>
@@ -25,4 +34,4 @@
             </div><!-- .pane -->
         </div><!-- .content -->
     </div><!-- .container-content -->
-</div><!-- .component-sign-up -->
+</div><!-- .component-step-2 -->
