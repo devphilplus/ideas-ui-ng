@@ -6,6 +6,7 @@ export const environment = {
   production: false,
 
   url_base: 'http://localhost:4200',
+  api_base: 'http://localhost:8081',
 
   path_register: '/user/register/step-1',
   path_register_2: '/user/register/step-2',

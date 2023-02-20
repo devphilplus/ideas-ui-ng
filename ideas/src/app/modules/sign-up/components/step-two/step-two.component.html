@@ -3,12 +3,12 @@
         <div class="content">
             <div class="pane pane-1">
                 <a title="Return to Home" routerLink="">Return Home</a>
-                <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="signup()">
+                <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="complete()">
                     <header>Sign Up</header>
                     <fieldset formGroupName="emails">
                         <mat-form-field appearance="fill">
                             <mat-label>Email</mat-label>
-                            <input type="email" id="email1" name="email1" required readonly matInput class="field-email field-required" formControlName="email1"/>
+                            <input type="email" id="email" name="email" required readonly matInput class="field-email field-required" formControlName="email"/>
                         </mat-form-field>
                     </fieldset>
                     <fieldset formGroupName="passwords">

@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { ApiResponse } from 'src/app/classes/api-response';
 import { environment } from 'src/environments/environment';
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,15 +19,17 @@ export class SignUpService {
   register(
     email: string
   ): Observable<ApiResponse> {
+
     return this.http.post<ApiResponse>(
-      environment.url_base + environment.path_register,
+      environment.api_base + environment.path_register,
       {
+        id: uuidv4(),
         email: email
       }
     );
   }
 
-  register_step_2(
+  register_complete(
     token: string,
     pw: string
   ): Observable<ApiResponse> {

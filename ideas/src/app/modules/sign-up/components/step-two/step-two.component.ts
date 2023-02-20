@@ -10,7 +10,7 @@ export class StepTwoComponent implements OnInit {
 
   signupForm = new FormGroup({
     emails: new FormGroup({
-      email1: new FormControl('', [
+      email: new FormControl('', [
         Validators.required,
         Validators.email
       ])
@@ -30,4 +30,7 @@ export class StepTwoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  complete() {
+
+  }
 }
