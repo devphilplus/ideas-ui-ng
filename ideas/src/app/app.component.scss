@@ -3,6 +3,10 @@
     top: 64px;
     left: 0;
     right: 0;
+
+    .spacer {
+        flex: 1 1 auto;
+    }
 }
 
 #tb-main {

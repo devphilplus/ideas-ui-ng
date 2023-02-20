@@ -8,9 +8,18 @@
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+    <button mat-icon-button class="settings icon" aria-label="Settings" [matMenuTriggerFor]="mnu_settings">
+      <mat-icon>more_vert</mat-icon>
     </button>
+
+    <mat-menu #mnu_settings="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>redial</span>
+      </button>
+      <a mat-menu-item title="Sign In" routerLink="/sign-in">Sign In</a>
+      <a mat-menu-item title="Sign In" routerLink="/sign-out">Sign Out</a>
+    </mat-menu>
   </mat-toolbar>
 
   <div class="container-outlet">
