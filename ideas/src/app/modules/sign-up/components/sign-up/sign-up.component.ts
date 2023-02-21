@@ -9,6 +9,8 @@ import { SignUpService } from '../../services/sign-up.service';
 })
 export class SignUpComponent implements OnInit {
 
+  enabled = true;
+
   signupForm = new FormGroup({
     emails: new FormGroup({
       email: new FormControl('', [
@@ -27,10 +29,12 @@ export class SignUpComponent implements OnInit {
 
   signup(): void {
     console.log('SignUpComponent::signup()');
+    this.enabled = false;
     this.registration.register(
       this.signupForm.get('emails.email')?.value || ''
     ).subscribe(r => {
       console.debug(r);
+      this.enabled = true;
     });
   }
 }

@@ -8,8 +8,8 @@ export const environment = {
   url_base: 'http://localhost:4200',
   api_base: 'http://localhost:8081',
 
-  path_register: '/user/register/step-1',
-  path_register_2: '/user/register/step-2',
+  path_register: '/auth/register',
+  path_register_complete: '/auth/register/complete',
   path_register_details: '/user/register/details'
 };
 

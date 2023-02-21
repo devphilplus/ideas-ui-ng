@@ -1,1 +1,37 @@
-<p>continue works!</p>
+<div class="component-continue">
+    <div class="container-content">
+        <div class="content">
+            <div class="pane pane-1">
+                <a title="Return to Home" routerLink="">Return Home</a>
+                <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="complete()">
+                    <header>Sign Up</header>
+                    <fieldset formGroupName="emails">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="email" id="email" name="email" required readonly matInput class="field-email field-required" formControlName="email"/>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset formGroupName="passwords">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="password" id="pw1" name="pw1" required readonly matInput class="field-email field-required" formControlName="pw1"/>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="password" id="pw2" name="pw2" required readonly matInput class="field-email field-required" formControlName="pw2"/>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Sign Up</button>
+                    </fieldset>
+                </form>
+                <a title="Sign Up" routerLink="/sign-in">Sign In</a>
+            </div><!-- .pane -->
+            <div class="pane pane-2">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in turpis maximus, porttitor quam eu, tempor felis. Nullam vehicula lobortis justo, a consectetur massa maximus vel. Aenean in aliquet mi, et congue erat. Suspendisse velit est, porttitor et arcu eu, interdum finibus tortor. Vestibulum porta egestas finibus. Mauris nec neque in justo condimentum pretium. Ut quis congue ipsum, eu vulputate augue. Nam non nulla sed nulla elementum mattis. Praesent molestie orci vitae justo pellentesque sagittis. Ut sodales massa ligula, quis posuere nisl rhoncus semper. Nam a volutpat nulla, sit amet aliquam leo. Cras vitae nisi vitae tortor malesuada eleifend. Mauris ultricies, nisi ac cursus faucibus, turpis tortor tempus leo, at sagittis eros arcu sed nulla. Nullam faucibus vel elit ut malesuada. Vivamus vitae quam et nunc faucibus gravida. 
+                </p>
+            </div><!-- .pane -->
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-continue -->

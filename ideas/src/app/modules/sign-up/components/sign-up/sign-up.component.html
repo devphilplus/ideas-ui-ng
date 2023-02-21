@@ -3,17 +3,17 @@
         <div class="content">
             <div class="pane pane-1">
                 <a title="Return to Home" routerLink="">Return Home</a>
-                <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="signup()">
+                <form class="sign-up" method="post" action="" [class.enabled]="enabled" [formGroup]="signupForm" (ngSubmit)="signup()">
                     <header>Sign Up</header> 
                     <fieldset formGroupName="emails">
                         <mat-form-field appearance="fill">
                             <mat-label>Email</mat-label>
-                            <input type="email" id="email" name="email" required matInput class="field-email field-required" formControlName="email"/>
+                            <input type="email" id="email" name="email" required matInput class="field-email field-required" [attr.readonly]="!enabled" formControlName="email"/>
                             <mat-hint>An email will be sent to the email address to continue the sign up process</mat-hint>
                         </mat-form-field>
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Sign Up</button>
+                        <button type="submit" [attr.disabled]="enabled ? null : false" >Sign Up</button>
                     </fieldset>
                 </form>
                 <a title="Sign Up" routerLink="/sign-in">Sign In</a>

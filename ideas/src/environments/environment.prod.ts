@@ -3,6 +3,6 @@ export const environment = {
 
   url_base: 'http://localhost:4200',
 
-  path_register: '/user/register',
-  path_register_2: '/user/register/2'
+  path_register: '/auth/register',
+  path_register_complete: '/auth/register/complete',
 };
