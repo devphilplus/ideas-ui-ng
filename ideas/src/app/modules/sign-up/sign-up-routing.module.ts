@@ -4,15 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { StepOneComponent } from './components/step-one/step-one.component';
 import { StepTwoComponent } from './components/step-two/step-two.component';
+import { ContinueComponent } from './components/continue/continue.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: StepOneComponent
+    component: SignUpComponent
   },
   {
-    path: "step-2",
-    component: StepTwoComponent
+    path: "continue/:token",
+    component: ContinueComponent
   }
 ];
 
