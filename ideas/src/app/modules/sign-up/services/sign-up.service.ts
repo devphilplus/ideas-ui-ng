@@ -34,7 +34,7 @@ export class SignUpService {
     pw: string
   ): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(
-      environment.url_base + environment.path_register_2,
+      environment.api_base + environment.path_register_complete,
       {
         token: token,
         pw: pw
@@ -46,7 +46,7 @@ export class SignUpService {
     token: string
   ): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(
-      environment.url_base + environment.path_register_details,
+      environment.api_base + environment.path_register_details,
       {
         token: token
       }

@@ -1,0 +1,24 @@
+.container-content {
+    width: 60%;
+    margin: auto;
+    padding: 4em;
+}
+
+.content {
+    display: flex;
+
+    .pane {
+        padding: 1em;
+        flex: 1;
+        border: solid 1px red;
+    }
+}
+
+form.sign-up {
+
+    fieldset {
+        border: none;
+        display: flex;
+        flex-flow: column wrap;
+    }
+}

@@ -3,27 +3,28 @@
         <div class="content">
             <div class="pane pane-1">
                 <a title="Return to Home" routerLink="">Return Home</a>
-                <form class="sign-up" method="post" action="" [formGroup]="signupForm" (ngSubmit)="complete()">
+                <form class="sign-up" method="post" action="" [class.enabled]="enabled" [formGroup]="signupForm" (ngSubmit)="complete()">
                     <header>Sign Up</header>
                     <fieldset formGroupName="emails">
-                        <mat-form-field appearance="fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
                             <input type="email" id="email" name="email" required readonly matInput class="field-email field-required" formControlName="email"/>
                         </mat-form-field>
                     </fieldset>
                     <fieldset formGroupName="passwords">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Email</mat-label>
-                            <input type="password" id="pw1" name="pw1" required readonly matInput class="field-email field-required" formControlName="pw1"/>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password" id="pw1" name="pw1" required matInput class="field-email field-required" formControlName="pw1"/>
                         </mat-form-field>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Email</mat-label>
-                            <input type="password" id="pw2" name="pw2" required readonly matInput class="field-email field-required" formControlName="pw2"/>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Confirm Password</mat-label>
+                            <input type="password" id="pw2" name="pw2" required matInput class="field-email field-required" formControlName="pw2"/>
                         </mat-form-field>
                     </fieldset>
                     <fieldset>
                         <button type="submit">Sign Up</button>
                     </fieldset>
+                    <input type="hidden" formControlName="token" />
                 </form>
                 <a title="Sign Up" routerLink="/sign-in">Sign In</a>
             </div><!-- .pane -->
