@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +19,11 @@ export class SignInComponent implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(
+    private title: TitleService
+  ) {
+    this.title.set_title('Sign In');
+  }
 
   ngOnInit(): void {
   }
