@@ -7,17 +7,22 @@
                     <form class="sign-in" method="post" action="" [formGroup]="signinForm" (ngSubmit)="signin()">
                         <header>Sign In</header> 
                         <fieldset>
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="outline">
                                 <mat-label>Email</mat-label>
                                 <input type="email" id="email" name="email" required matInput class="field-email field-required" formControlName="email"/>
+                                <mat-icon matSuffix>mail</mat-icon>
                             </mat-form-field>
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="outline">
                                 <mat-label>Password</mat-label>
                                 <input type="password" id="pw" name="pw" required matInput class="field-pw field-required" formControlName="pw"/>
+                                <mat-icon matSuffix>password</mat-icon>
                             </mat-form-field>
                         </fieldset>
                         <fieldset>
-                            <button type="submit">Sign In</button>
+                            <button type="submit">
+                                Sign In
+                                <mat-icon>login</mat-icon>
+                            </button>
                         </fieldset>
                     </form>
                     <a title="Sign Up" routerLink="/sign-up">Sign Up</a>

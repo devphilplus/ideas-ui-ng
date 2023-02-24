@@ -1,12 +1,12 @@
 <div id="component-app">
   <mat-toolbar color="primary" id="tb-main">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="btn btn-nav-left" aria-label="Show left navigation pane" (click)="$navleft.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>{{ app_name }}</span>
     <span class="spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    <button mat-icon-button class="btn btn-nav-right" aria-label="Show notifications pane" (click)="$navright.toggle()">
+      <mat-icon>comment</mat-icon>
     </button>
     <button mat-icon-button class="settings icon" aria-label="Settings" [matMenuTriggerFor]="mnu_settings">
       <mat-icon>more_vert</mat-icon>
@@ -22,7 +22,27 @@
     </mat-menu>
   </mat-toolbar>
 
-  <div class="container-outlet">
-    <router-outlet></router-outlet>
-  </div><!-- .container-outlet -->
+  <mat-sidenav-container class="container-sidenav">
+    <mat-sidenav class="nav-left" #$navleft mode="over" position="start">
+      nav-left
+    </mat-sidenav>
+
+    <mat-sidenav class="nav-right" #$navright mode="over" position="end">
+      <div class="container-notifications">
+        <div>notification 1</div>
+        <div>notification 2</div>
+        <div>notification 3</div>
+        <div>notification 4</div>
+        <div>notification 5</div>
+        <div>notification 6</div>
+        <div>notification 7</div>
+      </div><!-- .container-notifications -->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="container-outlet">
+        <router-outlet></router-outlet>
+      </div><!-- .container-outlet -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div><!-- #component-app -->

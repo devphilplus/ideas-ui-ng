@@ -35,6 +35,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get pw() {
+    return this.signinForm.get('pw');
+  }
+
   signin(): void {
     console.log('SignInComponent::signin()');
 
