@@ -12,7 +12,9 @@ export const environment = {
 
   path_register: '/auth/register',
   path_register_complete: '/auth/register/complete',
-  path_register_details: '/auth/register/info'
+  path_register_details: '/auth/register/info',
+
+  path_signin: '/auth/sign-in'
 };
 
 /*
