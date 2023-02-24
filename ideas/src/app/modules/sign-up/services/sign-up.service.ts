@@ -37,7 +37,7 @@ export class SignUpService {
       environment.api_base + environment.path_register_complete,
       {
         token: token,
-        pw: pw
+        password: pw
       }
     );
   }

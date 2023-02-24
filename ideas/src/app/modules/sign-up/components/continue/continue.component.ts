@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TitleService } from 'src/app/services/title.service';
 import { SignUpService } from '../../services/sign-up.service';
 import { ApiResponse } from 'src/app/classes/api-response';
@@ -35,6 +35,7 @@ export class ContinueComponent implements OnInit {
   constructor(
     private title: TitleService,
     private route: ActivatedRoute,
+    private router: Router,
     private signup_service: SignUpService
   ) { 
     this.title.set_title('Sign Up');
