@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TitleService } from 'src/app/services/title.service';
 import { SignUpService } from '../../services/sign-up.service';
 import { ApiResponse } from 'src/app/classes/api-response';
+import { patternValidator } from 'src/app/classes/validators/pattern-validator';
+import { matchValidator } from 'src/app/classes/validators/match-validator';
 
 @Component({
   selector: 'app-continue',
@@ -24,11 +26,20 @@ export class ContinueComponent implements OnInit {
     }),
     passwords: new FormGroup({
       pw1: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(8),
+        patternValidator(new RegExp("[a-z]*[a-z]"), { lower: true }),
+        patternValidator(new RegExp("[A-Z]*[A-Z]"), { upper: true }),
+        patternValidator(new RegExp("[0-9]*[0-9]"), { numeric: true })
       ]),
       pw2: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(8)
       ])
+    }, {
+      validators: [
+        matchValidator("pw1", "pw2")
+      ]
     })
   });
 
@@ -59,6 +70,20 @@ export class ContinueComponent implements OnInit {
       });
     }
   }
+
+  get passwords() {
+    return this.signupForm.get("passwords");
+  }
+
+  get pw1() {
+    return this.signupForm.get("passwords.pw1");
+  }
+
+  get pw2() {
+    return this.signupForm.get("passwords.pw2");
+  }
+
+
 
   complete() {
     console.log("ContinueComponent::complete()");

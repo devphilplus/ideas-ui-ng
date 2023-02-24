@@ -20,6 +20,13 @@
                             <mat-label>Confirm Password</mat-label>
                             <input type="password" id="pw2" name="pw2" required matInput class="field-email field-required" formControlName="pw2"/>
                         </mat-form-field>
+                        <div class="errors">
+                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['minlength']">Passwords must be longer than 8 characters</span>
+                            <span *ngIf="(pw1?.dirty || pw1?.touched) && (pw2?.dirty || pw2?.touched) && passwords?.errors?.['identical']">Passwords do not match</span>
+                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['lower']">Passwords must contain at least 2 lowercase characters</span>
+                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['upper']">Passwords must contain at least 2 uppercase characters</span>
+                            <span *ngif="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['numeric']">Passwords must contain at least 2 numeric characters</span>
+                        </div><!-- .errors -->
                     </fieldset>
                     <fieldset>
                         <button type="submit">Sign Up</button>
