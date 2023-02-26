@@ -3,7 +3,7 @@
         <div class="content">
             <div class="pane pane-1">
                 <div class="container-form">
-                    <a title="Return to Home" routerLink="">Return Home</a>
+                    <a title="Return to Home" class="link" routerLink="">Return Home</a>
                     <form class="sign-in" method="post" action="" [formGroup]="signinForm" (ngSubmit)="signin()">
                         <header>Sign In</header> 
                         <fieldset>
@@ -19,13 +19,13 @@
                             </mat-form-field>
                         </fieldset>
                         <fieldset>
-                            <button type="submit">
+                            <button id="btn-submit-signin" type="submit">
                                 Sign In
                                 <mat-icon>login</mat-icon>
                             </button>
                         </fieldset>
                     </form>
-                    <a title="Sign Up" routerLink="/sign-up">Sign Up</a>
+                    <a title="Sign Up" class="link" routerLink="/sign-up">Sign Up</a>
                 </div><!-- .container-form -->
             </div><!-- .pane -->
             <div class="pane pane-2">
