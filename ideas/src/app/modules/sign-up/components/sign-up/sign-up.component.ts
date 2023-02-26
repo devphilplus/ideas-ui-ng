@@ -31,6 +31,10 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get email() {
+    return this.signupForm.get("emails.email");
+  }
+
   signup(): void {
     console.log('SignUpComponent::signup()');
     this.enabled = false;

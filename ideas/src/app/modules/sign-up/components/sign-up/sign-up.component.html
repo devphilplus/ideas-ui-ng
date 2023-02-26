@@ -3,7 +3,7 @@
         <div class="content">
             <div class="pane pane-1">
                 <div class="container-form">
-                    <a title="Return to Home" routerLink="">Return Home</a>
+                    <a title="Return to Home" class="link" routerLink="">Return Home</a>
                     <form class="sign-up" method="post" action="" [class.enabled]="enabled" [formGroup]="signupForm" (ngSubmit)="signup()">
                         <header>Sign Up</header> 
                         <fieldset formGroupName="emails">
@@ -14,10 +14,13 @@
                             </mat-form-field>
                         </fieldset>
                         <fieldset>
-                            <button type="submit" [attr.disabled]="enabled ? null : false" >Sign Up</button>
+                            <button id="btn-submit-signup" 
+                                type="submit" 
+                                [attr.disabled]="enabled ? null : false"
+                                >Sign Up</button>
                         </fieldset>
                     </form>
-                    <a title="Sign Up" routerLink="/sign-in">Sign In</a>
+                    <a title="Sign Up" class="link" routerLink="/sign-in">Sign In</a>
                 </div><!-- .container-form -->
             </div><!-- .pane -->
             <div class="pane pane-2">

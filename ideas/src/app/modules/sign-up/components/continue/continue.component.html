@@ -2,38 +2,44 @@
     <div class="container-content">
         <div class="content">
             <div class="pane pane-1">
-                <a title="Return to Home" routerLink="">Return Home</a>
+                <a title="Return to Home" class="link" routerLink="">Return Home</a>
                 <form class="sign-up" method="post" action="" [class.enabled]="enabled" [formGroup]="signupForm" (ngSubmit)="complete()">
                     <header>Sign Up</header>
                     <fieldset formGroupName="emails">
                         <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
                             <input type="email" id="email" name="email" required readonly matInput class="field-email field-required" formControlName="email"/>
+                            <mat-icon matSuffix>mail</mat-icon>
                         </mat-form-field>
                     </fieldset>
                     <fieldset formGroupName="passwords">
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
                             <input type="password" id="pw1" name="pw1" required matInput class="field-email field-required" formControlName="pw1"/>
+                            <mat-icon matSuffix>password</mat-icon>
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Confirm Password</mat-label>
                             <input type="password" id="pw2" name="pw2" required matInput class="field-email field-required" formControlName="pw2"/>
+                            <mat-icon matSuffix>password</mat-icon>
                         </mat-form-field>
-                        <div class="errors">
-                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['minlength']">Passwords must be longer than 8 characters</span>
-                            <span *ngIf="(pw1?.dirty || pw1?.touched) && (pw2?.dirty || pw2?.touched) && passwords?.errors?.['identical']">Passwords do not match</span>
-                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['lower']">Passwords must contain at least 2 lowercase characters</span>
-                            <span *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['upper']">Passwords must contain at least 2 uppercase characters</span>
-                            <span *ngif="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['numeric']">Passwords must contain at least 2 numeric characters</span>
-                        </div><!-- .errors -->
+                        <ul class="errors">
+                            <li *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['minlength']">Passwords must be longer than 8 characters</li>
+                            <li *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['lower']">Passwords must contain at least 2 lowercase characters</li>
+                            <li *ngIf="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['upper']">Passwords must contain at least 2 uppercase characters</li>
+                            <li *ngif="(pw1?.dirty || pw1?.touched) && pw1?.errors?.['numeric']">Passwords must contain at least 2 numeric characters</li>
+                            <li *ngIf="(pw1?.dirty || pw1?.touched) && (pw2?.dirty || pw2?.touched) && passwords?.errors?.['identical']">Passwords do not match</li>
+                        </ul><!-- .errors -->
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Sign Up</button>
+                        <button id="btn-submit-signup-continue" 
+                            type="submit" 
+                            [attr.disabled]="enabled ? null : false"
+                            >Sign Up</button>
                     </fieldset>
                     <input type="hidden" formControlName="token" />
                 </form>
-                <a title="Sign Up" routerLink="/sign-in">Sign In</a>
+                <a title="Sign Up" class="link" routerLink="/sign-in">Sign In</a>
             </div><!-- .pane -->
             <div class="pane pane-2">
                 <p>
