@@ -10,6 +10,8 @@ export const environment = {
   url_base: 'http://localhost:4200',
   api_base: 'http://localhost:8081',
 
+  session_token_key: 'sid',
+
   path_register: '/auth/register',
   path_register_complete: '/auth/register/complete',
   path_register_details: '/auth/register/info',
