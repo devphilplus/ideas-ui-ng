@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiResponse } from 'src/app/classes/api-response';
-import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private title: TitleService,
     private router: Router,
-    private auth_service: AuthService
+    private user_service: UserService
   ) {
     this.title.set_title('Sign In');
   }
@@ -43,7 +43,7 @@ export class SignInComponent implements OnInit {
     console.log('SignInComponent::signin()');
 
     this.enabled = false;
-    this.auth_service.signin(
+    this.user_service.signin(
       this.signinForm.get('email')?.value || '',
       this.signinForm.get('pw')?.value || ''
     );
