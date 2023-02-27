@@ -12,6 +12,14 @@ const routes: Routes = [
     loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => SignUpModule)
   },
   {
+    path: "admin",
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: "user-profile",
+    loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule)
+  },
+  {
     path: "sign-out",
     component: SignOutComponent
   },
