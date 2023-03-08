@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../classes/api-response';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../classes/user';
 import { Message, MessageService, MessageType } from './message.service';
 
@@ -24,20 +24,29 @@ export class UserService {
   signin(
     email: string,
     password: string
-  ) {
-    this.http.post<ApiResponse>(
+  ): Observable<ApiResponse> {
+    const self = this;
+    return this.http.post<ApiResponse>(
       environment.api_base + environment.path_signin,
       {
         email: email,
         password: password
       }
-    ).subscribe((r: ApiResponse) => {
-      console.debug(r);
-      this.msg_service.send(
-        r.message,
-        r.success ? MessageType.Info : MessageType.Error
-      )
-    });
+    ).pipe(
+      tap((r: ApiResponse) => {
+        self.msg_service.send(
+          r.message,
+          r.success ? MessageType.Info : MessageType.Error
+        );
+      })
+    );
+    // ).subscribe((r: ApiResponse) => {
+    //   console.debug(r);
+    //   this.msg_service.send(
+    //     r.message,
+    //     r.success ? MessageType.Info : MessageType.Error
+    //   )
+    // });
   }
 
   signout() {

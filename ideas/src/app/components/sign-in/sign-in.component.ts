@@ -37,9 +37,12 @@ export class SignInComponent implements OnInit {
     this.title.set_title('Sign In');
 
     this.msg_service.message$.subscribe((r: Message) => {
-      console.log(r);
-      this.message = r.text;
-      this.message_type = r.type == MessageType.Info ? 'info' : 'error';
+      console.debug(r);
+      // only show errors
+      if (r.type == MessageType.Error) {
+        this.message = r.text;
+        this.message_type = "error";
+      }
     });
   }
 
@@ -57,6 +60,16 @@ export class SignInComponent implements OnInit {
     this.user_service.signin(
       this.signinForm.get('email')?.value || '',
       this.signinForm.get('pw')?.value || ''
-    );
+    ).subscribe((r: ApiResponse) => {
+      console.log(r);
+      if (r.success) {
+        // redirect to home/destination
+        this.message = "authenticated. redirecting in 3 seconds ...";
+        setTimeout(() => {
+          this.router.navigate(['']);
+        }, 3000);
+      }
+      this.enabled = true;
+    });
   }
 }

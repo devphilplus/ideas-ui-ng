@@ -36,6 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
               if (response.ok && response.headers.has("authorization")) {
                 let new_token = response.headers.get("authorization")?.replace("Bearer", "").trim() || '';
                 if (token != new_token) {
+                  console.log("storing new auth token");
                   sessionStorage.setItem(environment.session_token_key, new_token);
                 }
               }
