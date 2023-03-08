@@ -14,7 +14,9 @@ export class UserService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.current();
+  }
 
 
   signin(
@@ -38,6 +40,17 @@ export class UserService {
 
   current() {
     console.error("//todo");
+    if (sessionStorage.getItem(environment.session_token_key)) {
+      this.http.post<ApiResponse>(
+        environment.api_base + environment.path_user_current,
+        {}
+      ).subscribe((r: ApiResponse) => {
+        console.debug(r);
+        if (r.success) {
+          console.info("success");
+        }
+      });
+    }
   }
 
   get user$(): Observable<User> {
