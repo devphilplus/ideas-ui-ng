@@ -6,6 +6,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpModule } from './modules/sign-up/sign-up.module';
 import { SignOutComponent } from './components/sign-out/sign-out.component';
 import { ForgotPwModule } from './modules/forgot-pw/forgot-pw.module';
+import { AuthGuard } from './classes/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: "sign-in",
-    component: SignInComponent
+    component: SignInComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "",

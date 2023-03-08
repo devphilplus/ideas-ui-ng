@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../classes/api-response';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../classes/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  _user$ = new BehaviorSubject<User>(User.anonymous());
 
   constructor(
     private http: HttpClient
@@ -34,5 +38,9 @@ export class UserService {
 
   current() {
     console.error("//todo");
+  }
+
+  get user$(): Observable<User> {
+    return this._user$.asObservable();
   }
 }
