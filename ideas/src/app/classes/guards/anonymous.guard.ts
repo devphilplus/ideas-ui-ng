@@ -20,6 +20,8 @@ export class AnonymousGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.user_service.user$.pipe(
         map((user: User) => {
+          console.debug("//todo: remove", user);
+          console.debug("//todo: remove", user.is_signed_in);
           return !user.is_signed_in;
         })
       );

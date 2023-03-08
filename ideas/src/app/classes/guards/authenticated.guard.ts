@@ -20,6 +20,8 @@ export class AuthenticatedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.user_service.user$.pipe(
         map((user: User) => {
+          console.debug("//todo: remove", user);
+          console.debug("//todo: remove", user.is_signed_in);
           if (!user.is_signed_in) {
             this.msg_service.send(
               "Please sign in",

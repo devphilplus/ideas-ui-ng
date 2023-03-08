@@ -12,7 +12,8 @@ import { AnonymousGuard } from './classes/guards/anonymous.guard';
 const routes: Routes = [
   {
     path: "sign-up",
-    loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => SignUpModule)
+    loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => SignUpModule),
+    canActivate: [AnonymousGuard]
   },
   {
     path: 'forgot-pw',
@@ -29,12 +30,12 @@ const routes: Routes = [
   {
     path: "sign-out",
     component: SignOutComponent,
-    canActivate: [AnonymousGuard]
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "sign-in",
     component: SignInComponent,
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AnonymousGuard]
   },
   {
     path: "",
