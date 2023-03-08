@@ -7,6 +7,12 @@
                     <form class="sign-in" method="post" action="" [formGroup]="signinForm" (ngSubmit)="signin()">
                         <header>Sign In</header> 
                         <fieldset>
+                            <div class="messages">
+                                <p>Please provide the details below to sign in</p>
+                                <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
                             <mat-form-field appearance="outline">
                                 <mat-label>Email</mat-label>
                                 <input type="email" id="email" name="email" required matInput class="field-email field-required" formControlName="email"/>

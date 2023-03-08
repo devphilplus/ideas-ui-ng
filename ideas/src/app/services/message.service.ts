@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 export enum MessageType {
@@ -7,18 +7,29 @@ export enum MessageType {
   Error
 }
 
+export class Message {
+
+  constructor(
+    private _text: string,
+    private _type: MessageType
+  ) {}
+
+  get text(): string {
+    return this._text;
+  }
+
+  get type(): MessageType {
+    return this._type;
+  }
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
-  message = new BehaviorSubject<{
-    text: string,
-    type: MessageType
-  }>({
-    text: '',
-    type: MessageType.Info
-  });
+  _message = new BehaviorSubject<Message>(new Message('', MessageType.Info));
 
   constructor() { }
 
@@ -26,9 +37,10 @@ export class MessageService {
     text: string,
     type: MessageType
   ) {
-    this.message.next({
-      text: text,
-      type: type
-    });
+    this._message.next(new Message(text, type));
+  }
+
+  get message$(): Observable<Message> {
+    return this._message.asObservable();
   }
 }

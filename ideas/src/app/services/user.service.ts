@@ -4,6 +4,7 @@ import { ApiResponse } from '../classes/api-response';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../classes/user';
+import { Message, MessageService, MessageType } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class UserService {
   _user$ = new BehaviorSubject<User>(User.anonymous());
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private msg_service: MessageService
   ) {
     this.current();
   }
@@ -31,6 +33,10 @@ export class UserService {
       }
     ).subscribe((r: ApiResponse) => {
       console.debug(r);
+      this.msg_service.send(
+        r.message,
+        r.success ? MessageType.Info : MessageType.Error
+      )
     });
   }
 
@@ -48,6 +54,18 @@ export class UserService {
         console.debug(r);
         if (r.success) {
           console.info("success");
+          const user = (r.data as {
+            user: {
+              email: string,
+              name: string
+            }
+          }).user;
+          this._user$.next(new User(
+            user.email,
+            user.name
+          ));
+        } else {
+          console.error("error");
         }
       });
     }
