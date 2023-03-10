@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { TitleService } from 'src/app/services/title.service';
 import { SignUpService } from '../../services/sign-up.service';
 import { ApiResponse } from 'src/app/classes/api-response';
 import { patternValidator } from 'src/app/classes/validators/pattern-validator';
 import { matchValidator } from 'src/app/classes/validators/match-validator';
+import { Message, MessageService, MessageType } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-continue',
@@ -15,6 +17,8 @@ import { matchValidator } from 'src/app/classes/validators/match-validator';
 export class ContinueComponent implements OnInit {
 
   enabled = true;
+  message = '';
+  message_type = 'info';
 
   signupForm = new FormGroup({
     token: new FormControl('', []),
@@ -47,13 +51,24 @@ export class ContinueComponent implements OnInit {
     private title: TitleService,
     private route: ActivatedRoute,
     private router: Router,
-    private signup_service: SignUpService
+    private signup_service: SignUpService,
+    private msg_service: MessageService
   ) { 
     this.title.set_title('Sign Up');
   }
 
   ngOnInit(): void {
     this.enabled = false;
+    
+    this.msg_service.message$.subscribe((r: Message) => {
+      console.debug(r);
+      // only show errors
+      if (r.type == MessageType.Error) {
+        this.message = r.text;
+        this.message_type = "error";
+      }
+    });
+
     let token = this.route.snapshot.paramMap.get('token');
     if (token != '') {
       this.signup_service.get_signup_details(token || '').subscribe((r: ApiResponse) => {
@@ -94,12 +109,15 @@ export class ContinueComponent implements OnInit {
       this.signupForm.get('passwords.pw1')?.value || ''
     ).subscribe((r: ApiResponse) => {
       if (r.success) {
-        console.log(r);
+        // redirect to sign-in page
+        this.message = "Successfully signed up. Redirecting to Sign In page ...";
+        setTimeout(() => {
+          this.router.navigate(['sign-in']);
+        }, 3000);
       } else {
         console.error(r);
+        this.enabled = true;
       }
-
-      this.enabled = true;
     });
   }
 }

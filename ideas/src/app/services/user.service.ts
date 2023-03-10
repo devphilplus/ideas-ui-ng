@@ -34,6 +34,7 @@ export class UserService {
       }
     ).pipe(
       tap((r: ApiResponse) => {
+        console.debug(r);
         self.msg_service.send(
           r.message,
           r.success ? MessageType.Info : MessageType.Error

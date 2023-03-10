@@ -5,6 +5,12 @@
                 <a title="Return to Home" class="link" routerLink="">Return Home</a>
                 <form class="sign-up" method="post" action="" [class.enabled]="enabled" [formGroup]="signupForm" (ngSubmit)="complete()">
                     <header>Sign Up</header>
+                    <fieldset>
+                        <div class="messages">
+                            <p>Please provide the details below to sign complete the registration</p>
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
                     <fieldset formGroupName="emails">
                         <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
