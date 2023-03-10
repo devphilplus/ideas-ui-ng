@@ -68,8 +68,10 @@ export class SignInComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['']);
         }, 3000);
+      } else {
+        console.error(r);
+        this.enabled = true;
       }
-      this.enabled = true;
     });
   }
 }

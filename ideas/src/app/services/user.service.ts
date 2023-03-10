@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../classes/api-response';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 import { User } from '../classes/user';
 import { Message, MessageService, MessageType } from './message.service';
 
@@ -35,19 +35,13 @@ export class UserService {
     ).pipe(
       tap((r: ApiResponse) => {
         console.debug(r);
+        self.current();
         self.msg_service.send(
           r.message,
           r.success ? MessageType.Info : MessageType.Error
         );
-      })
+      }),
     );
-    // ).subscribe((r: ApiResponse) => {
-    //   console.debug(r);
-    //   this.msg_service.send(
-    //     r.message,
-    //     r.success ? MessageType.Info : MessageType.Error
-    //   )
-    // });
   }
 
   signout() {
@@ -61,21 +55,28 @@ export class UserService {
         environment.api_base + environment.path_user_current,
         {}
       ).subscribe((r: ApiResponse) => {
-        console.debug(r);
         if (r.success) {
-          console.info("success");
           const user = (r.data as {
             user: {
               email: string,
-              name: string
+              given_name: string,
+              middle_name: string,
+              family_name: string
             }
           }).user;
+          console.debug(user);
+          
+          let name = `${user.given_name}${user.family_name}`;
+          if (name != "") {
+            name = `${user.given_name} ${user.family_name}`;
+          }
+
           this._user$.next(new User(
             user.email,
-            user.name
+            name
           ));
         } else {
-          console.error("error");
+          console.error("error", r);
         }
       });
     }

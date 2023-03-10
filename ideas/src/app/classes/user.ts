@@ -15,7 +15,7 @@ export class User {
     }
 
     get name(): string {
-        return this._name
+        return this._name == '' ? environment.default_user : this._name;
     }
 
     get is_signed_in(): boolean {
