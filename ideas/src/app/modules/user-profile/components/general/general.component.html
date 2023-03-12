@@ -1,0 +1,40 @@
+<div class="component-home">
+    <div class="container-component">
+        <div class="content">
+            <div class="container-form">
+                <form class="general" method="post" action="" [formGroup]="generalForm" (ngSubmit)="save()">
+                    <header>General</header>
+                    <fieldset>
+                        <div class="messages">
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <caption>Name</caption>
+                        <mat-form-field appearance="outline">
+                            <mat-label>First</mat-label>
+                            <input type="text" id="given_name" name="given_name" required readonly matInput class="field-given-name field-required" formControlName="given_name"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Middle</mat-label>
+                            <input type="text" id="middle_name" name="middle_name" required readonly matInput class="field-middle-name field-required" formControlName="middle_name"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Family</mat-label>
+                            <input type="text" id="family_name" name="family_name" required readonly matInput class="field-family-name field-required" formControlName="family_name"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <button id="btn-submit-general" 
+                            type="submit" 
+                            [attr.disabled]="enabled ? null : false"
+                            >Save</button>
+                    </fieldset>
+                </form>
+            </div><!-- .container-form -->
+        </div><!-- .content -->
+    </div><!-- .container-component -->
+</div><!-- .component-home -->
