@@ -29,13 +29,15 @@
 
     <mat-sidenav class="nav-right" #$navright mode="over" position="end">
       <div class="container-notifications">
-        <div>notification 1</div>
-        <div>notification 2</div>
-        <div>notification 3</div>
-        <div>notification 4</div>
-        <div>notification 5</div>
-        <div>notification 6</div>
-        <div>notification 7</div>
+        <header>Messages</header>
+        <div class="container-message" *ngFor="let m or messages">
+          <button type="button" id="close" class="btn-close">
+            <mat-icon>close</mat-icon>
+          </button>
+          <div class="message">
+            <pre>{{ m }}</pre>
+          </div><!-- .message -->
+        </div><!-- .container-message -->
       </div><!-- .container-notifications -->
     </mat-sidenav>
 
