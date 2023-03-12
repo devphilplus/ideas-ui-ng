@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MessageService } from 'src/app/services/message.service';
+import { Message, MessageService, MessageType } from 'src/app/services/message.service';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
@@ -25,6 +25,15 @@ export class GeneralComponent implements OnInit {
     private msg_service: MessageService
   ) {
     this.title.set_title("General");
+
+    this.msg_service.message$.subscribe((r: Message) => {
+      console.debug(r);
+      // only show errors
+      if (r.type == MessageType.Error) {
+        this.message = r.text;
+        this.message_type = "error";
+      }
+    });
   }
 
   ngOnInit(): void {

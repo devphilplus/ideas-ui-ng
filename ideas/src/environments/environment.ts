@@ -20,7 +20,9 @@ export const environment = {
 
   path_signin: '/auth/sign-in',
 
-  path_user_current: '/user/current'
+  path_user_current: '/user/current',
+
+  path_user_change_password: '/user/password/set'
 };
 
 /*
