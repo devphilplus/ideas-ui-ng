@@ -5,6 +5,12 @@ import { UserService } from './services/user.service';
 import { User } from './classes/user';
 import { Observable } from 'rxjs';
 import { Message, MessageService } from './services/message.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-root',
@@ -20,7 +26,8 @@ export class AppComponent {
   constructor(
     private title: TitleService,
     private user_service: UserService,
-    private msg_service: MessageService
+    private msg_service: MessageService,
+    private _notifier: MatSnackBar
   ) {
     this.title.set_title('Welcome');
 
@@ -28,6 +35,17 @@ export class AppComponent {
 
     this.msg_service.message$.subscribe((r: Message) => {
       this.messages.push(r);
+      this.show_notification(r.text);
+    });
+  }
+
+  show_notification(
+    text: string
+  ): void {
+    this._notifier.open(text, 'close', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 3
     });
   }
 }
