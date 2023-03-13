@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Message, MessageService, MessageType } from 'src/app/services/message.service';
 import { TitleService } from 'src/app/services/title.service';
+import { ProfileService } from '../../services/profile.service';
+import { ApiResponse } from 'src/app/classes/api-response';
 
 @Component({
   selector: 'app-general',
@@ -22,7 +24,8 @@ export class GeneralComponent implements OnInit {
 
   constructor(
     private title: TitleService,
-    private msg_service: MessageService
+    private msg_service: MessageService,
+    private profile_service: ProfileService
   ) {
     this.title.set_title("General");
 
@@ -39,7 +42,28 @@ export class GeneralComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get given_name() {
+    return this.generalForm.get('given_name');
+  }
+
+  get middle_name() {
+    return this.generalForm.get('middle_name');
+  }
+
+  get family_name() {
+    return this.generalForm.get('family_name');
+  }
+
   save(): void {
     console.log("GeneralComponent::save()");
+    this.enabled = false;
+    this.profile_service.update(
+      this.generalForm.get('given_name')?.value || '',
+      this.generalForm.get('middle_name')?.value || '',
+      this.generalForm.get('family_name')?.value || ''
+    ).subscribe((r: ApiResponse) => {
+      console.log(r);
+      this.enabled = true;
+    });
   }
 }

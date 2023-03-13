@@ -56,6 +56,18 @@ export class PasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get pw1() {
+    return this.passwordForm.get('pw1');
+  }
+
+  get pw2() {
+    return this.passwordForm.get('pw2');
+  }
+  
+  get passwords() {
+    return this.passwordForm;
+  }
+
   change_password(): void {
     console.log("PasswordComponent::change_password()");
 
