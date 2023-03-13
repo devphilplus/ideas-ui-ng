@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ClientComponent } from './components/client/client.component';
+import { ClientListComponent } from './components/client-list/client-list.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ClientComponent
+    ClientComponent,
+    ClientListComponent
   ],
   imports: [
     CommonModule,

@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule)
   },
   {
+    path: "join",
+    loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule)
+  },
+  {
     path: "sign-out",
     component: SignOutComponent,
     canActivate: [AuthenticatedGuard]

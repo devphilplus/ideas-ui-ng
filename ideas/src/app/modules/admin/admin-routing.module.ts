@@ -4,12 +4,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'clients',
-    loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
-  },
-  {
     path: '',
-    component: DashboardComponent
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: 'clients',
+        loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
+      }
+    ]
   }
 ];
 
