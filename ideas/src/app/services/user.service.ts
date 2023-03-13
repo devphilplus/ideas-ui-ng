@@ -45,11 +45,11 @@ export class UserService {
   }
 
   signout() {
-    console.error("//todo");
+    console.error("//todo UserService::signout()");
   }
 
   current() {
-    console.error("//todo");
+    console.error("//todo UserService::current()");
     if (sessionStorage.getItem(environment.session_token_key)) {
       this.http.post<ApiResponse>(
         environment.api_base + environment.path_user_current,
