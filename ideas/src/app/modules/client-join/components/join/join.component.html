@@ -1,0 +1,20 @@
+<div class="component-client-join">
+    <div class="container-content">
+        <div class="content">
+            <form class="joinForm" method="post" action="">
+                <fieldset>
+                    <div class="messages">
+                        <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="text" id="client" name="client" required matInput class="field-client field-required" formControlName="client"/>
+                        <mat-icon matSuffix>password</mat-icon>
+                    </mat-form-field>
+                </fieldset>
+            </form>
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-client-join -->
