@@ -1,20 +1,35 @@
 <div class="component-client-join">
     <div class="container-content">
         <div class="content">
-            <form class="joinForm" method="post" action="">
-                <fieldset>
-                    <div class="messages">
-                        <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input type="text" id="client" name="client" required matInput class="field-client field-required" formControlName="client"/>
-                        <mat-icon matSuffix>password</mat-icon>
-                    </mat-form-field>
-                </fieldset>
-            </form>
+            <div class="container-pane">
+                <div class="pane pane-1">
+                    <div class="container-form">
+                        <form class="joinForm" method="post" action="" [formGroup]="joinForm" (ngSubmit)="join()">
+                            <header>Join Client</header>
+                            <fieldset>
+                                <div class="messages">
+                                    <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Client</mat-label>
+                                    <input type="text" id="client" name="client" required matInput class="field-client field-required" formControlName="client"/>
+                                    <mat-icon matSuffix>password</mat-icon>
+                                </mat-form-field>
+                            </fieldset>
+                            <fieldset>
+                                <button type="submit" id="btn-join-client" title="Join">
+                                    Join
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div><!-- .container-form -->
+                </div><!-- .pane -->
+                <div class="pane pane-2">
+                    <p>Your request to join client will be forwarded to the client's administrators.</p>
+                </div><!-- .pane -->
+            </div><!-- .container-pane -->
         </div><!-- .content -->
     </div><!-- .container-content -->
 </div><!-- .component-client-join -->

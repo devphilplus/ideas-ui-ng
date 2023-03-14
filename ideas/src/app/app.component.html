@@ -4,6 +4,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>{{ app_name }}</span>
+    <button mat-button class="btn btn-client-select" aria-label="Select Client" [matMenuTriggerFor]="mnu_client">
+      Default
+    </button>
     <span class="spacer"></span>
     <button mat-icon-button class="btn btn-nav-right" aria-label="Show notifications pane" (click)="$navright.toggle()">
       <mat-icon>comment</mat-icon>
@@ -11,6 +14,14 @@
     <button mat-button class="btn btn-user" [attr.title]="user.name | titlecase" [attr.aria-label]="user.name" [matMenuTriggerFor]="mnu_settings">
       {{ user.name | titlecase }}
     </button>
+
+    <mat-menu #mnu_client="matMenu">
+      <a mat-menu-item id="link-client-default" title="Default">Default</a>
+      <a mat-menu-item id="link-client-client1" title="Client 1">Client 1</a>
+      <a mat-menu-item id="link-client-client2" title="Client 2">Client 2</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/join">Join Client</a>
+    </mat-menu>
 
     <mat-menu #mnu_settings="matMenu">
       <button mat-menu-item>
