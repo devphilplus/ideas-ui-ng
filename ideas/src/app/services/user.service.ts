@@ -66,9 +66,12 @@ export class UserService {
           }).user;
           console.debug(user);
           
-          let name = `${user.given_name}${user.family_name}`;
-          if (name != "") {
-            name = `${user.given_name} ${user.family_name}`;
+          let name = user.given_name;
+          if (name == '') {
+            name = user.family_name;
+            if (name == '') {
+              name = user.email;
+            }
           }
 
           this._user$.next(new User(
