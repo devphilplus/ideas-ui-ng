@@ -17,8 +17,10 @@
         <mat-icon>dialpad</mat-icon>
         <span>redial</span>
       </button>
+      <a mat-menu-item id="link-user-profile" title="Profile" routerLink="/user-profile" *ngIf="user.is_signed_in">Profile</a>
+      <mat-divider></mat-divider>
       <a mat-menu-item id="link-sign-in" title="Sign In" routerLink="/sign-in" *ngIf="!user.is_signed_in">Sign In</a>
-      <a mat-menu-item title="Sign Out" routerLink="/sign-out" *ngIf="user.is_signed_in">Sign Out</a>
+      <a mat-menu-item id="link-sign-out" title="Sign Out" routerLink="/sign-out" *ngIf="user.is_signed_in">Sign Out</a>
     </mat-menu>
   </mat-toolbar>
 
