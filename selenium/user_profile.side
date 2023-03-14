@@ -1,0 +1,35 @@
+{
+  "id": "e3ac435a-1e0a-4d93-949e-5675e1c460f9",
+  "version": "2.0",
+  "name": "user_profile",
+  "url": "http://localhost:4200",
+  "tests": [{
+    "id": "5c8060a6-9fca-4b20-8180-1eca051095b7",
+    "name": "change_password",
+    "commands": [{
+      "id": "146b00f8-d8b3-493f-bebf-625530b0ea20",
+      "comment": "",
+      "command": "open",
+      "target": "sign-in",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af2cde5d-7973-4d51-98ed-6aea88fe94ad",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "idEAS | Sign In",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "d42bac28-4569-4b62-bc5a-e40862f5bf56",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:4200/"],
+  "plugins": []
+}
