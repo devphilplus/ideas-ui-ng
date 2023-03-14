@@ -46,6 +46,7 @@ export class UserService {
 
   signout() {
     console.error("//todo UserService::signout()");
+    sessionStorage.removeItem(environment.session_token_key);
   }
 
   current() {

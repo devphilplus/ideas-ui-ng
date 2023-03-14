@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from 'src/app/services/title.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sign-out',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignOutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: TitleService,
+    private user_service: UserService
+  ) {
+    this.title.set_title('Sign Out');
+  }
 
   ngOnInit(): void {
+    // clear out tokens in 3 seconds
+    setTimeout(() => {
+      this.user_service.signout();
+    }, 3000);
   }
 
 }
