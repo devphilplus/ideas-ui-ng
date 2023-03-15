@@ -25,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: "user-profile",
-    loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule)
+    loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule),
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "join",

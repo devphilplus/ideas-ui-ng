@@ -76,6 +76,7 @@ export class PasswordComponent implements OnInit {
     this.enabled = false;
     this.profile_service.change_password(pw).subscribe((r: ApiResponse) => {
       console.log(r);
+      this.msg_service.send(r.message, r.success ? MessageType.Info : MessageType.Error);
     });
     
   }
