@@ -43,7 +43,7 @@
     <mat-sidenav class="nav-right" #$navright mode="over" position="end">
       <div class="container-notifications">
         <header>Messages</header>
-        <div class="container-message" *ngFor="let m or messages">
+        <div class="container-message" *ngFor="let m of messages">
           <button type="button" id="close" class="btn-close">
             <mat-icon>close</mat-icon>
           </button>
