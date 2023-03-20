@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TitleService } from 'src/app/services/title.service';
+import { ClientsService } from '../../services/clients.service';
+import { ApiResponse } from 'src/app/classes/api-response';
 
 @Component({
   selector: 'app-client-list',
@@ -18,7 +20,8 @@ export class ClientListComponent implements OnInit {
   });
 
   constructor(
-    private title: TitleService
+    private title: TitleService,
+    private clients_service: ClientsService
   ) {
     this.title.set_title('Clients');
   }
@@ -26,4 +29,9 @@ export class ClientListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get_clients(): void {
+    this.clients_service.clients().subscribe((r: ApiResponse) => {
+      console.debug(r);
+    });
+  }
 }
