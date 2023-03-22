@@ -3,7 +3,7 @@
     <button mat-icon-button class="btn btn-nav-left" aria-label="Show left navigation pane" (click)="$navleft.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>{{ app_name }}</span>
+    <a title="Home" class="link-home" href="/" mat-button>{{ app_name }}</a>
     <button mat-button class="btn btn-client-select" aria-label="Select Client" [matMenuTriggerFor]="mnu_client">
       Default <mat-icon>arrow_drop_down</mat-icon>
     </button>
@@ -42,7 +42,21 @@
 
   <mat-sidenav-container class="container-sidenav">
     <mat-sidenav class="nav-left" #$navleft mode="over" position="start">
-      nav-left
+      <div class="container-modules">
+        <section class="modules">
+          <header>Modules</header>
+          <div class="module-list">
+            <ul>
+              <li>
+                <div>Admin</div>
+                <ul>
+                  <li><a ttile="Clients" class="link link-clients" [routerLink]="['admin/clients']">Clients</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- .module-list -->
+        </section>
+      </div><!-- .container-modules -->
     </mat-sidenav>
 
     <mat-sidenav class="nav-right" #$navright mode="over" position="end">
