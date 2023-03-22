@@ -30,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: "join",
-    loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule)
+    loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule),
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "sign-out",
