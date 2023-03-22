@@ -1,8 +1,51 @@
 <div class="component-client-list">
     <div class="container-content">
         <div class="content">
+            <h2>Client List</h2>
             <form class="listForm" method="post" action="">
-                <fieldset></fieldset>
+                <fieldset>
+                    <div class="container-actions">
+                        <mat-toolbar>
+                            <button mat-icon-button class="example-icon" aria-label="Some action">
+                                <mat-icon>share</mat-icon>
+                            </button>
+                            <button mat-icon-button class="example-icon" aria-label="Some action">
+                                <mat-icon>share</mat-icon>
+                            </button>
+                        </mat-toolbar>
+                    </div><!-- .container-actions -->
+                    <div class="container-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>actions</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <a title="first" class="link link-first">&lt;&lt;</a>
+                                        <a title="previous" class="link link-prev">&lt;</a>
+                                        <button type="button">Go to</button>
+                                        <a title="next" class="link link-next">&gt;</a>
+                                        <a title="last" class="link link-last">&gt;&gt;</a>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>sample 1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>sample 2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- .container-table -->
+                </fieldset>
             </form>
         </div><!-- .content -->
     </div><!-- .container-content -->
