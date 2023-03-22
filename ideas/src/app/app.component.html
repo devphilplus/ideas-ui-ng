@@ -20,7 +20,12 @@
       <a mat-menu-item id="link-client-client1" title="Client 1">Client 1</a>
       <a mat-menu-item id="link-client-client2" title="Client 2">Client 2</a>
       <mat-divider></mat-divider>
-      <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/join">Join Client</a>
+      <ng-template [ngIf]="user.is_signed_in">
+        <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/join">Join Client</a>
+      </ng-template>
+      <ng-template [ngIf]="!user.is_signed_in">
+        <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/sign-in" [queryParams]="{ destination: '/join' }">Join Client</a>
+      </ng-template>
     </mat-menu>
 
     <mat-menu #mnu_settings="matMenu">
@@ -48,7 +53,7 @@
             <mat-icon>close</mat-icon>
           </button>
           <div class="message">
-            <pre>{{ m }}</pre>
+            <pre>{{ m | json }}</pre>
           </div><!-- .message -->
         </div><!-- .container-message -->
       </div><!-- .container-notifications -->

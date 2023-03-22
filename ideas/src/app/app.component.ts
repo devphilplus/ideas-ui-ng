@@ -35,8 +35,11 @@ export class AppComponent {
     this.user$ = this.user_service.user$
 
     this.msg_service.message$.subscribe((r: Message) => {
-      this.messages.push(r);
-      this.show_notification(r.text);
+      console.log(r);
+      if (r.text != '') {
+        this.messages.push(r);
+        this.show_notification(r.text);
+      }
     });
   }
 
@@ -46,7 +49,7 @@ export class AppComponent {
     this._notifier.open(text, 'close', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
-      duration: 3
+      duration: 3000
     });
   }
 }
