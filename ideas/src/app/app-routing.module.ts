@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },
   {
+    path: "client-admin",
+    loadChildren: () => import('./modules/client-admin/client-admin.module').then(m => m.ClientAdminModule)
+  },
+  {
     path: "user-profile",
     loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule),
     canActivate: [AuthenticatedGuard]

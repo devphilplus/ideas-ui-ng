@@ -48,11 +48,22 @@
           <div class="module-list">
             <ul>
               <li>
-                <div>Admin</div>
+                <div><a title="Admin" class="link link-admin" [routerLink]="['/admin']">Admin</a></div>
                 <ul>
                   <li><a ttile="Clients" class="link link-clients" [routerLink]="['admin/clients']">Clients</a></li>
+                  <li><a ttile="Clients" class="link link-users" [routerLink]="['admin/users']">Users</a></li>
                 </ul>
               </li>
+              <li>
+                <div><a title="Client Administration" class="link link-client-admin" [routerLink]="['/client-admin']">Client Administration</a></div>
+                <ul>
+                  <li><a title="Members" class="link link-members" [routerLink]="['/client-admin/members']">Members</a></li>
+                  <li>Roles</li>
+                </ul>
+              </li>
+              <li>Human Resources</li>
+              <li>Accounting</li>
+              <li>Inventory</li>
             </ul>
           </div><!-- .module-list -->
         </section>
