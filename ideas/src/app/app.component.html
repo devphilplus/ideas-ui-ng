@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <a title="Home" class="link-home" href="/" mat-button>{{ app_name }}</a>
-    <button mat-button class="btn btn-client-select" aria-label="Select Client" [matMenuTriggerFor]="mnu_client">
+    <button mat-button class="btn btn-tenant-select" aria-label="Select Organization" [matMenuTriggerFor]="mnu_tenant">
       Default <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <span class="spacer"></span>
@@ -15,16 +15,16 @@
       {{ user.name | titlecase }}
     </button>
 
-    <mat-menu #mnu_client="matMenu">
+    <mat-menu #mnu_tenant="matMenu">
       <a mat-menu-item id="link-client-default" title="Default">Default</a>
       <a mat-menu-item id="link-client-client1" title="Client 1">Client 1</a>
       <a mat-menu-item id="link-client-client2" title="Client 2">Client 2</a>
       <mat-divider></mat-divider>
       <ng-template [ngIf]="user.is_signed_in">
-        <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/join">Join Client</a>
+        <a mat-menu-item id="link-tenant-join" title="Join Organization" routerLink="/join">Join Organization</a>
       </ng-template>
       <ng-template [ngIf]="!user.is_signed_in">
-        <a mat-menu-item id="link-client-join" title="Join Client" routerLink="/sign-in" [queryParams]="{ destination: '/join' }">Join Client</a>
+        <a mat-menu-item id="link-tenant-join" title="Join Organization" routerLink="/sign-in" [queryParams]="{ destination: '/join' }">Join Organization</a>
       </ng-template>
     </mat-menu>
 
@@ -50,8 +50,8 @@
               <li>
                 <div><a title="Admin" class="link link-admin" [routerLink]="['/admin']">Admin</a></div>
                 <ul>
-                  <li><a ttile="Clients" class="link link-clients" [routerLink]="['admin/clients']">Clients</a></li>
-                  <li><a ttile="Clients" class="link link-users" [routerLink]="['admin/users']">Users</a></li>
+                  <li><a ttile="Clients" class="link link-tenants" [routerLink]="['admin/tenants']">Clients</a></li>
+                  <li><a ttile="Users" class="link link-users" [routerLink]="['admin/users']">Users</a></li>
                 </ul>
               </li>
               <li>
