@@ -37,6 +37,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule),
     canActivate: [AuthenticatedGuard]
   },
+  {
+    path: 'inventory',
+    loadChildren: () => import('./modules/inventory/inventory.module').then(m => m.InventoryModule),
+  },
   // {
   //   path: "join",
   //   loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule),
