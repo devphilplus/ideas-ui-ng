@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MembersComponent } from './components/members/members.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { OrganizationsComponent } from './components/organizations/organizations
     DashboardComponent,
     MembersComponent,
     RolesComponent,
-    OrganizationsComponent
+    OrganizationsComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
