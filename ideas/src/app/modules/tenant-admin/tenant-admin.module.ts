@@ -5,13 +5,15 @@ import { TenantAdminRoutingModule } from './tenant-admin-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MembersComponent } from './components/members/members.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { OrganizationsComponent } from './components/organizations/organizations.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     MembersComponent,
-    RolesComponent
+    RolesComponent,
+    OrganizationsComponent
   ],
   imports: [
     CommonModule,
