@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'forgot-pw',
-    loadChildren: () => import('./modules/forgot-pw/forgot-pw.module').then(m => ForgotPwModule)
+    loadChildren: () => import('./modules/forgot-pw/forgot-pw.module').then(m => ForgotPwModule),
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "admin",
