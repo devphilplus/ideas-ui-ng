@@ -24,18 +24,27 @@ const routes: Routes = [
     path: "admin",
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },
+  // {
+  //   path: "client-admin",
+  //   loadChildren: () => import('./modules/client-admin/client-admin.module').then(m => m.ClientAdminModule)
+  // },
   {
-    path: "client-admin",
-    loadChildren: () => import('./modules/client-admin/client-admin.module').then(m => m.ClientAdminModule)
+    path: "tenant-admin",
+    loadChildren: () => import('./modules/tenant-admin/tenant-admin.module').then(m => m.TenantAdminModule)
   },
   {
     path: "user-profile",
     loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule),
     canActivate: [AuthenticatedGuard]
   },
+  // {
+  //   path: "join",
+  //   loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule),
+  //   canActivate: [AuthenticatedGuard]
+  // },
   {
-    path: "join",
-    loadChildren: () => import('./modules/client-join/client-join.module').then(m => m.ClientJoinModule),
+    path: 'join',
+    loadChildren: () => import('./modules/tenant-join/tenant-join.module').then(m => m.TenantJoinModule),
     canActivate: [AuthenticatedGuard]
   },
   {
