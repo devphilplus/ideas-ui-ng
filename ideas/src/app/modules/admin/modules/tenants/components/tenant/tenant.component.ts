@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleService } from 'src/app/services/title.service';
+import { TenantService } from '../../services/tenant.service';
 
 @Component({
   selector: 'app-tenant',
@@ -25,13 +26,14 @@ export class TenantComponent {
   });
   
   constructor(
-    private title: TitleService
+    private title: TitleService,
+    private tenant_service: TenantService
   ) {
     this.title.set_title('Tenant');
   }
 
   save(): void {
     console.log('TenantComponent::save()');
-
+    
   }
 }
