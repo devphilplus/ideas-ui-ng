@@ -1,0 +1,21 @@
+<div class="component-admin-tenants-tenant">
+    <div class="container-content">
+        <h1>Tenant</h1>
+        <div class="container-form">
+            <form class="form-tenant" method="post" action="">
+                <fieldset>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input type="text" id="name" name="name" required matInput class="field-name field-required" [attr.readonly]="!enabled" formControlName="name"/>
+                        <mat-hint>tenant name</mat-hint>
+                    </mat-form-field>
+                </fieldset>
+                <fieldset>
+                    <button type="submit" id="btn-submit">
+                        Save
+                    </button>
+                </fieldset>
+            </form>
+        </div><!-- .container-form -->
+    </div><!-- .container-content -->
+</div><!-- .component-admin-tenants-tenant -->
