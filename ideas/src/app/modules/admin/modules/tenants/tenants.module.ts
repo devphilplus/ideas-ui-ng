@@ -6,12 +6,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TenantComponent } from './components/tenant/tenant.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
+import { TenantListComponent } from './components/tenant-list/tenant-list.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    TenantComponent
+    TenantComponent,
+    TenantListComponent
   ],
   imports: [
     CommonModule,

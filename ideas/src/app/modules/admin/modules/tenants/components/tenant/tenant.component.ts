@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
@@ -9,10 +10,28 @@ import { TitleService } from 'src/app/services/title.service';
 export class TenantComponent {
 
   enabled = true;
+  message = '';
+  message_type = 'info';
+
+  tenantForm = new FormGroup({
+    id: new FormControl('', []),
+    name: new FormControl('', [
+      Validators.required
+    ]),
+    slug: new FormControl('', [
+      Validators.required
+    ]),
+    description: new FormControl('', {})
+  });
   
   constructor(
     private title: TitleService
   ) {
     this.title.set_title('Tenant');
+  }
+
+  save(): void {
+    console.log('TenantComponent::save()');
+
   }
 }
