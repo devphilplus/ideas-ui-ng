@@ -11,8 +11,8 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'clients',
-        loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
+        path: 'tenants',
+        loadChildren: () => import('./modules/tenants/tenants.module').then(m => m.TenantsModule)
       },
       {
         path: 'users',
