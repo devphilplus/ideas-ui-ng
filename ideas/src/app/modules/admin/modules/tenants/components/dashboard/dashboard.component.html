@@ -9,7 +9,7 @@
             <mat-menu #mnu_tenants="matMenu">
                 <a mat-menu-item id="link-tenants" title="Tenants" class="link link-tenants" [routerLink]="['/admin/tenants/list']">Tenants</a>
                 <mat-divider></mat-divider>
-                <a mat-menu-item id="link-tenants-new" title="New Tenant" class="link link-tenants-new">New Tenants</a>
+                <a mat-menu-item id="link-tenants-new" title="New Tenant" class="link link-tenants-new" [routerLink]="['/admin/tenants/tenant']">New Tenants</a>
             </mat-menu>
             <div class="router-content">
                 <router-outlet></router-outlet>
