@@ -8,14 +8,16 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-  },
-  {
-    path: 'tenant',
-    component: TenantComponent
-  },
-  {
-    path: 'list',
-    component: TenantListComponent
+    children: [
+      {
+        path: 'list',
+        component: TenantListComponent
+      },
+      {
+        path: 'tenant',
+        component: TenantComponent
+      }
+    ]
   }
 ];
 
