@@ -7,7 +7,7 @@ import { TenantListComponent } from './components/tenant-list/tenant-list.compon
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
   {
     path: 'tenant',

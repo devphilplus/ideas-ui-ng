@@ -1,38 +1,40 @@
 <div class="component-admin-tenants-tenant">
     <div class="container-content">
-        <h1>Tenant</h1>
-        <div class="container-form">
-            <form class="form-tenant" method="post" action="">
-                <fieldset>
-                    <div class="messages">
-                        <p>Please provide the details below to sign complete the registration</p>
-                        <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Name</mat-label>
-                        <input type="text" id="name" name="name" required matInput class="field-name field-required" [attr.readonly]="!enabled" formControlName="name"/>
-                        <mat-hint>tenant name</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Slug</mat-label>
-                        <input type="text" id="slug" name="slug" required matInput class="field-slug field-required" [attr.readonly]="!enabled" formControlName="slug"/>
-                        <mat-hint>tenant slug</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Description</mat-label>
-                        <input type="text" id="description" name="description" required matInput class="field-description field-required" [attr.readonly]="!enabled" formControlName="description"/>
-                        <mat-hint>tenant description</mat-hint>
-                    </mat-form-field>
-                </fieldset>
-                <fieldset>
-                    <button type="submit" id="btn-submit">
-                        Save
-                    </button>
-                </fieldset>
-                <input type="hidden" id="id" formControlName="id" />
-            </form>
-        </div><!-- .container-form -->
+        <div class="content">
+            <h1>Tenant</h1>
+            <div class="container-form">
+                <form class="form-tenant" method="post" action="">
+                    <fieldset>
+                        <div class="messages">
+                            <p>Please provide the details below to sign complete the registration</p>
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Name</mat-label>
+                            <input type="text" id="name" name="name" required matInput class="field-name field-required" [attr.readonly]="!enabled" formControlName="name"/>
+                            <mat-hint>tenant name</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Slug</mat-label>
+                            <input type="text" id="slug" name="slug" required matInput class="field-slug field-required" [attr.readonly]="!enabled" formControlName="slug"/>
+                            <mat-hint>tenant slug</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Description</mat-label>
+                            <input type="text" id="description" name="description" required matInput class="field-description field-required" [attr.readonly]="!enabled" formControlName="description"/>
+                            <mat-hint>tenant description</mat-hint>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit" id="btn-submit">
+                            Save
+                        </button>
+                    </fieldset>
+                    <input type="hidden" id="id" formControlName="id" />
+                </form>
+            </div><!-- .container-form -->
+        </div><!-- .content -->
     </div><!-- .container-content -->
 </div><!-- .component-admin-tenants-tenant -->

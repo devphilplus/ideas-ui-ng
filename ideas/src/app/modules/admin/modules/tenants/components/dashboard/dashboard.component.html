@@ -1,9 +1,24 @@
 <div class="component-admin-tenants-dashboard">
     <div class="container-content">
-        <h1>Tenants Dashboard</h1>
-        <ul>
-            <li><a title="add tenant" class="link link-tenant" [routerLink]="['/admin/tenants/tenant']">add tenant</a></li>
-            <li><a title="list tenants" class="link link-tenant-list" [routerLink]="['/admin/tenants/list']">list tenants</a></li>
-        </ul>
+        <div class="content">
+            <mat-toolbar color="primary" id="tb-tenants">
+                <button mat-button class="btn btn-tenants" aria-label="Tenants" [matMenuTriggerFor]="mnu_tenants">
+                    Tenants
+                </button>
+            </mat-toolbar>
+            <mat-menu #mnu_tenants="matMenu">
+                <a mat-menu-item id="link-tenants" title="Tenants" class="link link-tenants">Tenants</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-tenants-new" title="New Tenant" class="link link-tenants-new">New Tenants</a>
+            </mat-menu>
+            <h1>Tenants Dashboard</h1>
+            <ul>
+                <li><a title="add tenant" class="link link-tenant" [routerLink]="['/admin/tenants/tenant']">add tenant</a></li>
+                <li><a title="list tenants" class="link link-tenant-list" [routerLink]="['/admin/tenants/list']">list tenants</a></li>
+            </ul>
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div><!-- .router-content -->
+        </div><!-- .content -->
     </div><!-- .container-content s-->
 </div><!-- .component-admin-tenants-dashboard -->
