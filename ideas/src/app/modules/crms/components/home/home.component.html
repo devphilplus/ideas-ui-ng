@@ -1,0 +1,24 @@
+<div class="component-crms-home">
+    <div class="container-content">
+        <div class="content">
+            <mat-toolbar color="primary" id="tb-crms">
+                <a mat-button class="link link-crms" aria-label="Customer Relations" [routerLink]="['/crms']">
+                    Customer Relations
+                </a>
+                <mat-divider [vertical]="true"></mat-divider>
+                <button mat-button class="btn btn-partners" aria-label="Business Partners" [matMenuTriggerFor]="mnu_partners">
+                    Partners
+                </button>
+            </mat-toolbar>
+            <mat-menu #mnu_partners="matMenu">
+                <a mat-menu-item id="link-warehouses" title="Warehouses" class="link link-warehouses" [routerLink]="['/crms/warehouses']">Business Partners</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link link-warehouse-new" title="New Warehouse" class="link link-warehouse-new" [routerLink]="['/crms/warehouses/new']">New Warehouse</a>
+            </mat-menu>
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div><!-- .router-content -->
+
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-crms-home -->

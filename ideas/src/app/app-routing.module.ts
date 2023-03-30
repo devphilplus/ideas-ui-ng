@@ -47,6 +47,10 @@ const routes: Routes = [
   //   canActivate: [AuthenticatedGuard]
   // },
   {
+    path: 'crms',
+    loadChildren: () => import('./modules/crms/crms.module').then(m => m.CrmsModule)
+  },
+  {
     path: 'join',
     loadChildren: () => import('./modules/tenant-join/tenant-join.module').then(m => m.TenantJoinModule),
     canActivate: [AuthenticatedGuard]
