@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HrRoutingModule } from './hr-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    MaterialModule,
     HrRoutingModule
   ]
 })
