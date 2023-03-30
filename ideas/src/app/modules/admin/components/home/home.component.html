@@ -1,0 +1,29 @@
+<div class="component-admin-home">
+    <div class="container-content">
+        <div class="content">
+            <mat-toolbar color="primary" id="tb-admin">
+                <a mat-button title="Admin" class="link link-admin" aria-label="Admin" [routerLink]="['/admin']">Admin</a>
+                <mat-divider [vertical]="true"></mat-divider>
+                <button mat-button class="btn btn-users" title="Users" aria-label="Users" [matMenuTriggerFor]="mnu_admin_tenants">
+                    Tenants
+                </button>
+                <button mat-button class="btn btn-users" title="Roles" aria-label="Users" [matMenuTriggerFor]="mnu_admin_users">
+                    Users
+                </button>
+            </mat-toolbar>
+            <mat-menu #mnu_admin_tenants="matMenu">
+                <a mat-menu-item id="link-tenants" title="Tenants" class="link link-tenants" [routerLink]="['/admin/tenants/list']">Tenants</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-tenants-new" title="New Tenant" class="link link-tenants-new" [routerLink]="['/admin/tenants/new']">New User</a>
+            </mat-menu>
+            <mat-menu #mnu_admin_users="matMenu">
+                <a mat-menu-item id="link-users" title="Users" class="link link-users" [routerLink]="['/admin/users/list']">Users</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-users-new" title="New User" class="link link-users-new" [routerLink]="['/admin/users/new']">New User</a>
+            </mat-menu>
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div><!-- .router-content -->
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-admin-home -->
