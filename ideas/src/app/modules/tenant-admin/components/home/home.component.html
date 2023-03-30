@@ -1,0 +1,37 @@
+<div class="component-tenant-admin-home">
+    <div class="container-content">
+        <div class="content">
+            <mat-toolbar color="primary" id="tb-tenant-admin">
+                <a mat-button title="Admin" class="link link-admin" aria-label="Admin" [routerLink]="['/tenant-admin']">Admin</a>
+                <mat-divider [vertical]="true"></mat-divider>
+                <button mat-button class="btn btn-users" title="Users" aria-label="Users" [matMenuTriggerFor]="mnu_admin_users">
+                    Users
+                </button>
+                <button mat-button class="btn btn-users" title="Roles" aria-label="Users" [matMenuTriggerFor]="mnu_admin_roles">
+                    Roles
+                </button>
+                <button mat-button class="btn btn-orgs" title="Organizations" aria-label="Organizations" [matMenuTriggerFor]="mnu_admin_orgs">
+                    Organizations
+                </button>
+            </mat-toolbar>
+            <mat-menu #mnu_admin_users="matMenu">
+                <a mat-menu-item id="link-users" title="Users" class="link link-users" [routerLink]="['/tenant-admin/members/list']">Users</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-users-new" title="New User" class="link link-users-new" [routerLink]="['/tenant-admin/members/new']">New User</a>
+            </mat-menu>
+            <mat-menu #mnu_admin_roles="matMenu">
+                <a mat-menu-item id="link-roles" title="Roles" class="link link-roles" [routerLink]="['/tenant-admin/roles/list']">Roles</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-roles-new" title="New Role" class="link link-roles-new" [routerLink]="['/tenant-admin/roles/new']">New Role</a>
+            </mat-menu>
+            <mat-menu #mnu_admin_orgs="matMenu">
+                <a mat-menu-item id="link-orgs" title="Organizations" class="link link-orgs" [routerLink]="['/tenant-admin/orgs/list']">Organizations</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link-orgs-new" title="New Organization" class="link link-orgs-new" [routerLink]="['/tenant-admin/orgs/new']">New Organization</a>
+            </mat-menu>
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div><!-- .router-content -->
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-tenant-admin-dashboard -->
