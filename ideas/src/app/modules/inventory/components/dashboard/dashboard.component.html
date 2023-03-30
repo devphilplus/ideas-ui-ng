@@ -1,5 +1,23 @@
 <div class="component-inventory-dashboard">
     <div class="container-content">
-        <h1>Inventory Dashboard</h1>
+        <div class="content">
+            <mat-toolbar color="primary" id="tb-inventory">
+                <a mat-button class="link link-inventory" aria-label="Inventory" [routerLink]="['/inventory']">
+                    Inventory
+                </a>
+                <mat-divider></mat-divider>
+                <button mat-button class="btn btn-inventory" aria-label="Inventory" [matMenuTriggerFor]="mnu_warehouses">
+                    Warehouses
+                </button>
+            </mat-toolbar>
+            <mat-menu #mnu_warehouses="matMenu">
+                <a mat-menu-item id="link-warehouses" title="Warehouses" class="link link-warehouses" [routerLink]="['/inventory/warehouses']">Warehouses</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link link-warehouse-new" title="New Warehouse" class="link link-warehouse-new" [routerLink]="['/inventory/warehouses/new']">New Warehouse</a>
+            </mat-menu>
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div><!-- .router-content -->
+        </div><!-- .content -->
     </div><!-- .container-content -->
 </div><!-- .component-inventory-dashboard -->
