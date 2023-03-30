@@ -6,12 +6,16 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeeListComponent,
+    EmployeeComponent
   ],
   imports: [
     CommonModule,

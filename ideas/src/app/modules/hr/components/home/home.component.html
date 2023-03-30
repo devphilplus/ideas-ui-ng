@@ -6,14 +6,22 @@
                     Human Resources
                 </a>
                 <mat-divider [vertical]="true"></mat-divider>
-                <button mat-button class="btn btn-partners" aria-label="Business Partners" [matMenuTriggerFor]="mnu_partners">
-                    Partners
+                <button mat-button class="btn btn-employees" aria-label="Employees" [matMenuTriggerFor]="mnu_employees">
+                    Employees
+                </button>
+                <button mat-button class="btn btn-payroll" aria-label="Payroll" [matMenuTriggerFor]="mnu_payroll">
+                    Payroll
                 </button>
             </mat-toolbar>
-            <mat-menu #mnu_partners="matMenu">
-                <a mat-menu-item id="link-warehouses" title="Warehouses" class="link link-warehouses" [routerLink]="['/crms/warehouses']">Business Partners</a>
+            <mat-menu #mnu_employees="matMenu">
+                <a mat-menu-item id="link-hr-employees" title="Employees" class="link link-hr-employees" [routerLink]="['/hr/employees']">Employees</a>
                 <mat-divider></mat-divider>
-                <a mat-menu-item id="link link-warehouse-new" title="New Warehouse" class="link link-warehouse-new" [routerLink]="['/crms/warehouses/new']">New Warehouse</a>
+                <a mat-menu-item id="link link-hr-employee-new" title="New Employee" class="link link-hr-employee-new" [routerLink]="['/hr/employees/new']">New Employee</a>
+            </mat-menu>
+            <mat-menu #mnu_payroll="matMenu">
+                <a mat-menu-item id="link-hr-employees" title="Employees" class="link link-hr-employees" [routerLink]="['/hr/employees']">Employees</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link link-hr-employee-new" title="New Employee" class="link link-hr-employee-new" [routerLink]="['/hr/employees/new']">New Employee</a>
             </mat-menu>
             <div class="router-content">
                 <router-outlet></router-outlet>
