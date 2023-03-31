@@ -7,17 +7,15 @@ import { TenantListComponent } from './components/tenant-list/tenant-list.compon
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-    children: [
-      {
-        path: 'list',
-        component: TenantListComponent
-      },
-      {
-        path: 'tenant',
-        component: TenantComponent
-      }
-    ]
+    component: DashboardComponent
+  },
+  {
+    path: 'list',
+    component: TenantListComponent
+  },
+  {
+    path: 'new',
+    component: TenantComponent
   }
 ];
 
