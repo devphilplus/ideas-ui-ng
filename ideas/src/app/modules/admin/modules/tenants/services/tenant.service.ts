@@ -51,4 +51,11 @@ export class TenantService {
       }
     );
   }
+
+  tenants_fetch(): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(
+      environment.api_base + environment.path_tenants_fetch,
+      {}
+    )
+  }
 }
