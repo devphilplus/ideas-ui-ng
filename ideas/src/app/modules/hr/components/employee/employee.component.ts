@@ -21,7 +21,10 @@ export class EmployeeComponent {
     ]),
     family_name: new FormControl('', [
       Validators.required
-    ])
+    ]),
+    employee_id: new FormControl('', []),
+    prefix: new FormControl('', []),
+    suffix: new FormControl('', [])
   });
 
   constructor(
@@ -40,5 +43,21 @@ export class EmployeeComponent {
 
   get family_name() {
     return this.employeeForm.get('family_name');
+  }
+
+  get prefix() {
+    return this.employeeForm.get('prefix');
+  }
+
+  get suffix() {
+    return this.employeeForm.get('suffix');
+  }
+
+  save() {
+    console.log('EmployeeComponent::save()');
+
+    if (this.employeeForm.valid) {
+
+    }
   }
 }
