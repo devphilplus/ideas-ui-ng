@@ -1,1 +1,34 @@
-<p>employee works!</p>
+<div class="component-employee">
+    <div class="container-content">
+        <div class="content">
+            <h1>Employee</h1>
+            <div class="container-form">
+                <form class="form-employee" method="post" action=""  [formGroup]="employeeForm" [class.enabled]="enabled">
+                    <fieldset>
+                        <div class="messages">
+                            <p>Please provide the details below to sign complete the registration</p>
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Given Name</mat-label>
+                            <input type="text" id="given_name" name="given_name" required readonly matInput class="field-given-name field-required" formControlName="given_name"/>
+                            <mat-icon matSuffix>Name</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Middle Name</mat-label>
+                            <input type="text" id="middle_name" name="middle_name" required readonly matInput class="field-middle-name field-required" formControlName="middle_name"/>
+                            <mat-icon matSuffix>Name</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Family Name</mat-label>
+                            <input type="text" id="family_name" name="family_name" required readonly matInput class="field-family-name field-required" formControlName="family_name"/>
+                            <mat-icon matSuffix>Name</mat-icon>
+                        </mat-form-field>
+                    </fieldset>
+                </form>
+            </div><!-- .container-form -->
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-employee -->
