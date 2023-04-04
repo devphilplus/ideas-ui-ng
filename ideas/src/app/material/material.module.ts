@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatMenuModule,
     MatSnackBarModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }
