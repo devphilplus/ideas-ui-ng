@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   selector: 'app-payroll',
@@ -8,6 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PayrollComponent {
 
+  enabled = true;
+  message = '';
+  message_type = 'info';
+  
   payrollForm = new FormGroup({
     name: new FormControl('', [
       Validators.required
@@ -19,4 +24,13 @@ export class PayrollComponent {
       Validators.required
     ])
   });
+
+
+  constructor(
+    private title: TitleService
+  ) {}
+
+  submit(): void {
+    console.log('PayrollComponent::submit()');
+  }
 }

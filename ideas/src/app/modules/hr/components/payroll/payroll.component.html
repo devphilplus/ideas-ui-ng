@@ -2,7 +2,13 @@
     <div class="container-content">
         <div class="content">
             <div class="container-form">
-                <form class="form-payroll" method="post" action="" [formGroup]="payrollForm">
+                <form class="form-payroll" method="post" action="" [class.enabled]="enabled" [formGroup]="payrollForm" (ngSubmit)="submit">
+                    <fieldset>
+                        <div class="messages">
+                            <p>Please provide the details below to sign complete the registration</p>
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
                     <fieldset>
                         <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
@@ -22,6 +28,19 @@
                             <input type="date" id="end" name="end" required readonly matInput class="field-end field-required" formControlName="end"/>
                             <mat-icon matSuffix>mail</mat-icon>
                         </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStartDate placeholder="Start date">
+                          <input matEndDate placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Save</button>
                     </fieldset>
                 </form>
             </div><!-- .container-form -->
