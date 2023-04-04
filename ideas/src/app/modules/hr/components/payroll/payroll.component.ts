@@ -12,7 +12,7 @@ export class PayrollComponent {
   enabled = true;
   message = '';
   message_type = 'info';
-  
+
   payrollForm = new FormGroup({
     name: new FormControl('', [
       Validators.required
@@ -28,7 +28,9 @@ export class PayrollComponent {
 
   constructor(
     private title: TitleService
-  ) {}
+  ) {
+    this.title.set_title('Payroll');
+  }
 
   submit(): void {
     console.log('PayrollComponent::submit()');

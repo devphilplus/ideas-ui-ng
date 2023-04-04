@@ -2,6 +2,42 @@
     <div class="container-content">
         <div class="content">
             <h1>Attendance</h1>
+            <div class="container-form">
+                <form class="form-attendance" method="post" action="" [formGroup]="attendanceForm" (ngSubmit)="submit()">
+                    <fieldset>
+                        <div class="messages">
+                            <p>Please provide the details below to sign complete the registration</p>
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <input type="text" />
+                    </fieldset>
+                    <fieldset>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>In</th>
+                                    <th>Out</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                            </tfoot>
+                            <tbody formArrayName="entries">
+                                <ng-container *ngFor="let t of entries.controls; let index = index">
+                                    <tr [formGroupName]="index">
+                                        <td><input type="text" name="in" formControlName="in" /></td>
+                                        <td><input type="text" name="out" formControlName="out" /></td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Save</button>
+                    </fieldset>
+                </form>
+            </div><!-- .container-form -->
         </div><!-- .content -->
     </div><!-- .container-content -->
 </div><!-- .component-attendance -->
