@@ -3,7 +3,10 @@
         <div class="content">
             <h1>Tenant List</h1>
             <div class="container-form">
-                <form class="form-tenant-list" method="post" action="">
+                <form class="form-tenant-list" method="post" action="" [formGroup]="tenantsForm" (ngSubmit)="submit()">
+                    <fieldset>
+                        <button type="submit">submit</button>
+                    </fieldset>
                     <fieldset>
                         <table>
                             <thead>
@@ -22,13 +25,14 @@
                                     <th>Description</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
-                                <tr>
-                                    <td><input title="Active" type="checkbox" /></td>
-                                    <td>sample name</td>
-                                    <td>sample slug</td>
-                                    <td>sample description</td>
-                                </tr>
+                            <tbody formArrayName="tenants">
+                                <ng-container *ngFor="let t of tenants.controls; let index = index">
+                                    <tr [formGroupName]="index">
+                                        <td><input type="checkbox" name="active" formControlName="active"/></td>
+                                        <td><input type="text" name="name" formControlName="name" /></td>
+                                        <td><input type="text" name="slug" formControlName="slug" /></td>
+                                    </tr>
+                                </ng-container>
                             </tbody>
                         </table>
                     </fieldset>
