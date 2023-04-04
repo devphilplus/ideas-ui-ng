@@ -19,9 +19,9 @@
                 <a mat-menu-item id="link link-hr-employee-new" title="New Employee" class="link link-hr-employee-new" [routerLink]="['/hr/employees/new']">New Employee</a>
             </mat-menu>
             <mat-menu #mnu_payroll="matMenu">
-                <a mat-menu-item id="link-hr-payroll" title="Employees" class="link link-hr-employees" [routerLink]="['/hr/employees']">Employees</a>
+                <a mat-menu-item id="link-hr-payroll" title="Payroll" class="link link-payroll" [routerLink]="['/hr/payroll']">Payroll</a>
                 <mat-divider></mat-divider>
-                <a mat-menu-item id="link link-hr-employee-new" title="New Employee" class="link link-hr-employee-new" [routerLink]="['/hr/employees/new']">New Employee</a>
+                <a mat-menu-item id="link link-hr-employee-new" title="New Employee" class="link link-hr-employee-new" [routerLink]="['/hr/payroll/new']">New Employee</a>
             </mat-menu>
             <div class="router-content">
                 <router-outlet></router-outlet>

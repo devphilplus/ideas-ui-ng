@@ -11,6 +11,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { PayrollComponent } from './components/payroll/payroll.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { LeaveComponent } from './components/leave/leave.component';
+import { PayrollListComponent } from './components/payroll-list/payroll-list.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LeaveComponent } from './components/leave/leave.component';
     EmployeeComponent,
     PayrollComponent,
     AttendanceComponent,
-    LeaveComponent
+    LeaveComponent,
+    PayrollListComponent
   ],
   imports: [
     CommonModule,

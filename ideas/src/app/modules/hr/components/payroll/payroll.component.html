@@ -1,1 +1,30 @@
-<p>payroll works!</p>
+<div class="component-payroll">
+    <div class="container-content">
+        <div class="content">
+            <div class="container-form">
+                <form class="form-payroll" method="post" action="" [formGroup]="payrollForm">
+                    <fieldset>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input type="text" id="name" name="name" required readonly matInput class="field-name field-required" formControlName="name"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <caption>Dates</caption>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Start</mat-label>
+                            <input type="date" id="start" name="start" required readonly matInput class="field-start field-required" formControlName="start"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Start</mat-label>
+                            <input type="date" id="end" name="end" required readonly matInput class="field-end field-required" formControlName="end"/>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </fieldset>
+                </form>
+            </div><!-- .container-form -->
+        </div><!-- content -->
+    </div><!-- .container-content -->
+</div><!-- .component-payroll -->

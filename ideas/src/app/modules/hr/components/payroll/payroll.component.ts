@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-payroll',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class PayrollComponent {
 
+  payrollForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.required
+    ]),
+    start: new FormControl('', [
+      Validators.required
+    ]),
+    end: new FormControl('', [
+      Validators.required
+    ])
+  });
 }
