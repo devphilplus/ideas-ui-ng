@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TenantJoinRoutingModule } from './tenant-join-routing.module';
 import { JoinComponent } from './components/join/join.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -11,6 +13,8 @@ import { JoinComponent } from './components/join/join.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    MaterialModule,
     TenantJoinRoutingModule
   ]
 })

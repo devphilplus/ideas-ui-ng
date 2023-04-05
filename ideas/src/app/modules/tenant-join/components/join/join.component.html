@@ -1,1 +1,26 @@
-<p>join works!</p>
+<div class="component-tenant-join">
+    <div class="container-content">
+        <div class="content">
+            <div class="container-form">
+                <form class="form-tenant-join" method="post" action="" [formGroup]="tenantJoinForm" (ngsubmit)="submit">
+                    <fieldset>
+                        <div class="messages">
+                            <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Tenant</mat-label>
+                            <input type="text" id="name" name="name" required matInput class="field-name field-required" formControlName="name"/>
+                            <mat-hint>Tenant Name</mat-hint>
+                            <mat-icon matSuffix>password</mat-icon>
+                        </mat-form-field>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Join</button>
+                    </fieldset>
+                </form>
+            </div><!-- .container-form -->
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-tenant-join -->
