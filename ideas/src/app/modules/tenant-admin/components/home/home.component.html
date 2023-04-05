@@ -4,8 +4,8 @@
             <mat-toolbar color="primary" id="tb-tenant-admin">
                 <a mat-button title="Admin" class="link link-admin" aria-label="Admin" [routerLink]="['/tenant-admin']">Admin</a>
                 <mat-divider [vertical]="true"></mat-divider>
-                <button mat-button class="btn btn-users" title="Users" aria-label="Users" [matMenuTriggerFor]="mnu_admin_users">
-                    Users
+                <button mat-button class="btn btn-members" title="Members" aria-label="Members" [matMenuTriggerFor]="mnu_admin_members">
+                    Members
                 </button>
                 <button mat-button class="btn btn-users" title="Roles" aria-label="Users" [matMenuTriggerFor]="mnu_admin_roles">
                     Roles
@@ -14,10 +14,10 @@
                     Organizations
                 </button>
             </mat-toolbar>
-            <mat-menu #mnu_admin_users="matMenu">
-                <a mat-menu-item id="link-users" title="Users" class="link link-users" [routerLink]="['/tenant-admin/members/list']">Users</a>
+            <mat-menu #mnu_admin_members="matMenu">
+                <a mat-menu-item id="link-members" title="Members" class="link link-members" [routerLink]="['/tenant-admin/members/list']">Members</a>
                 <mat-divider></mat-divider>
-                <a mat-menu-item id="link-users-new" title="New User" class="link link-users-new" [routerLink]="['/tenant-admin/members/new']">New User</a>
+                <a mat-menu-item id="link-members-new" title="New Member" class="link link-members-new" [routerLink]="['/tenant-admin/members/new']">New Member</a>
             </mat-menu>
             <mat-menu #mnu_admin_roles="matMenu">
                 <a mat-menu-item id="link-roles" title="Roles" class="link link-roles" [routerLink]="['/tenant-admin/roles/list']">Roles</a>

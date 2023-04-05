@@ -5,6 +5,8 @@ import { MembersListComponent } from './components/members-list/members-list.com
 import { RolesListComponent } from './components/roles-list/roles-list.component';
 import { OrganizationListComponent } from './components/organization-list/organization-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { MembersComponent } from './components/members/members.component';
+import { RolesComponent } from './components/roles/roles.component';
 
 const routes: Routes = [
   {
@@ -16,8 +18,16 @@ const routes: Routes = [
         component: MembersListComponent
       },
       {
+        path: 'members/new',
+        component: MembersComponent
+      },
+      {
         path: 'roles/list',
         component: RolesListComponent
+      },
+      {
+        path: 'roles/new',
+        component: RolesComponent
       },
       {
         path: 'orgs/list',
