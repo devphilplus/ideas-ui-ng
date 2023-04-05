@@ -1,1 +1,24 @@
-<p>members works!</p>
+<div class="component-tenant-admin-member">
+    <div class="container-content">
+        <div class="content">
+            <form class="form-member" method="post" action="" [formGroup]="memberForm" (ngSubmit)="submit">
+                <fieldset>
+                    <div class="messages">
+                        <p>Please provide the details below to add a member to this tenant</p>
+                        <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" id="email" name="email" required readonly matInput class="field-email field-required" formControlName="email"/>
+                        <mat-icon matSuffix>mail</mat-icon>
+                    </mat-form-field>
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Save</button>
+                </fieldset>
+            </form>
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-tenant-admin-member -->
