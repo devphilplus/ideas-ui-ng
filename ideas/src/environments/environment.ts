@@ -24,6 +24,8 @@ export const environment = {
 
   path_user_change_password: '/user/password/set',
   path_user_profile_update: '/user/profile/update',
+  
+  path_user_tenant_join: '/user/tenant/join',
 
   // path_client_join: '/user/client/join',
 
