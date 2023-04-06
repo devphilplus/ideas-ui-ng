@@ -34,7 +34,8 @@ export const environment = {
   path_tenant_add: '/tenants/add',
   path_tenant_get: '/tenants/get',
   path_tenant_get_by_slug: '/tenants/get/slug',
-  path_tenants_fetch: '/tenants/fetch'
+  path_tenants_fetch: '/tenants/fetch',
+  path_tenants_members_fetch: '/tenants/members/fetch'
 };
 
 /*
