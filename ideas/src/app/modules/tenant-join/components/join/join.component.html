@@ -2,7 +2,7 @@
     <div class="container-content">
         <div class="content">
             <div class="container-form">
-                <form class="form-tenant-join" method="post" action="" [formGroup]="tenantJoinForm" (ngsubmit)="submit">
+                <form class="form-tenant-join" method="post" action="" [formGroup]="tenantJoinForm" (ngSubmit)="submit()">
                     <fieldset>
                         <div class="messages">
                             <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
