@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 import { User } from '../classes/user';
 import { Message, MessageService, MessageType } from './message.service';
+// import { empty } from "uuidv4";
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,14 @@ export class UserService {
               email: string,
               given_name: string,
               middle_name: string,
-              family_name: string
+              family_name: string,
+              tenant_id: string,
+              tenants: Array<{
+                id: string,
+                active: boolean,
+                name: string,
+                slug: string
+              }>
             }
           }).user;
           console.debug(user);
@@ -77,7 +85,9 @@ export class UserService {
 
           this._user$.next(new User(
             user.email,
-            name
+            name,
+            user.tenant_id,
+            user.tenants
           ));
         } else {
           console.error("error", r);
