@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../user';
@@ -34,3 +34,23 @@ export class AuthenticatedGuard implements CanActivate {
   }
   
 }
+
+
+// export const AuthenticatedGuard: CanActivateFn = (
+//   route: ActivatedRouteSnapshot,
+//   state: RouterStateSnapshot
+// ) => {
+//   return this.user_service.user$.pipe(
+//     map((user: User) => {
+//       console.debug("//todo: remove", user);
+//       console.debug("//todo: remove", user.is_signed_in);
+//       if (!user.is_signed_in) {
+//         this.msg_service.send(
+//           "Please sign in",
+//           MessageType.Info
+//         );
+//       }
+//       return user.is_signed_in;
+//     })
+//   );
+// }

@@ -19,6 +19,11 @@
       <a mat-menu-item id="link-client-default" title="Default">Default</a>
       <a mat-menu-item id="link-client-client1" title="Client 1">Client 1</a>
       <a mat-menu-item id="link-client-client2" title="Client 2">Client 2</a>
+
+      <ng-container *ngFor="let tenant of user.tenants">
+        <a mat-menu-item id="link-tenant" title="{{ tenant.name }}">{{ tenant.name }}</a>
+      </ng-container>
+
       <mat-divider></mat-divider>
       <ng-template [ngIf]="user.is_signed_in">
         <a mat-menu-item id="link-tenant-join" title="Join Organization" routerLink="/join">Join Organization</a>
