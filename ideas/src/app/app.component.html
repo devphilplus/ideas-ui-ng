@@ -5,7 +5,7 @@
     </button>
     <a title="Home" class="link-home" href="/" mat-button>{{ app_name }}</a>
     <button mat-button class="btn btn-tenant-select" aria-label="Select Organization" [matMenuTriggerFor]="mnu_tenant">
-      Default <mat-icon>arrow_drop_down</mat-icon>
+      {{ current_tenant }} <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <span class="spacer"></span>
     <button mat-icon-button class="btn btn-nav-right" aria-label="Show notifications pane" (click)="$navright.toggle()">
@@ -17,7 +17,7 @@
 
     <mat-menu #mnu_tenant="matMenu">
       <ng-container *ngFor="let tenant of user.tenants">
-        <a mat-menu-item id="link-tenant" title="{{ tenant.name }}">{{ tenant.name }}</a>
+        <a mat-menu-item id="link-tenant" title="{{ tenant.name }}" (click)="set_current_tenant(tenant.id)">{{ tenant.name }}</a>
       </ng-container>
 
       <mat-divider></mat-divider>

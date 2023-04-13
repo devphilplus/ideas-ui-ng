@@ -21,6 +21,7 @@ export const environment = {
   path_signin: '/auth/sign-in',
 
   path_user_current: '/user/current',
+  path_user_current_tenant_set: '/user/current/tenant/set',
 
   path_user_change_password: '/user/password/set',
   path_user_profile_update: '/user/profile/update',

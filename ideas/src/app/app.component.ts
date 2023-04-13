@@ -21,7 +21,10 @@ import {
 export class AppComponent {
 
   app_name = environment.app_name;
+  current_tenant = 'Default';
+
   user$: Observable<User> = new Observable<User>();
+  current_tenant$: Observable<string> = new Observable<string>();
   messages: Array<Message> = [];
 
   constructor(
@@ -33,6 +36,15 @@ export class AppComponent {
     this.title.set_title('Welcome');
 
     this.user$ = this.user_service.user$
+    this.user$.subscribe(r => {
+      r.tenants.forEach(t => {
+        if (t.id == r.tenant_id) {
+          console.log("refreshing tenant from", this.current_tenant, t.name);
+          this.current_tenant = t.name;
+          // this.current_tenant$.next(t.name);
+        }
+      });
+    });
 
     this.msg_service.message$.subscribe((r: Message) => {
       console.log(r);
@@ -51,5 +63,12 @@ export class AppComponent {
       verticalPosition: 'top',
       duration: 3000
     });
+  }
+
+  set_current_tenant(
+    tenant_id: string
+  ): void {
+    console.log('AppComponent::set_current_tenant', tenant_id);
+    this.user_service.set_current_tenant(tenant_id);
   }
 }

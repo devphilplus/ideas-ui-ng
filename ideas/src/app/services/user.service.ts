@@ -46,12 +46,12 @@ export class UserService {
   }
 
   signout() {
-    console.error("//todo UserService::signout()");
+    console.info("UserService::signout()");
     sessionStorage.removeItem(environment.session_token_key);
   }
 
   current() {
-    console.error("//todo UserService::current()");
+    console.info("UserService::current()");
     if (sessionStorage.getItem(environment.session_token_key)) {
       this.http.post<ApiResponse>(
         environment.api_base + environment.path_user_current,
@@ -73,7 +73,7 @@ export class UserService {
               }>
             }
           }).user;
-          console.debug(user);
+          // console.debug(user);
           
           let name = user.given_name;
           if (name == '') {
@@ -94,6 +94,23 @@ export class UserService {
         }
       });
     }
+  }
+
+  set_current_tenant(
+    tenant_id: string
+  ): void {
+    console.info("UserService::set_current_tenant()");
+    this.http.post<ApiResponse>(
+      environment.api_base + environment.path_user_current_tenant_set,
+      {
+        tenant_id: tenant_id
+      }
+    ).subscribe((r: ApiResponse) => {
+      console.debug("UserService::set_current_tenant()", r);
+      if (r.success) {
+        this.current();
+      }
+    })
   }
 
   get user$(): Observable<User> {
