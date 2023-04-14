@@ -7,13 +7,15 @@ import { TenantComponent } from './components/tenant/tenant.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { TenantListComponent } from './components/tenant-list/tenant-list.component';
+import { MemberListComponent } from './components/member-list/member-list.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     TenantComponent,
-    TenantListComponent
+    TenantListComponent,
+    MemberListComponent
   ],
   imports: [
     CommonModule,

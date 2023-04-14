@@ -14,7 +14,6 @@
                                     <th></th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -22,12 +21,14 @@
                                     <th></th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Description</th>
                                 </tr>
                             </tfoot>
                             <tbody formArrayName="tenants">
                                 <ng-container *ngFor="let t of tenants.controls; let index = index">
                                     <tr [formGroupName]="index">
+                                        <input type="hidden" name="tenant_id" formControlName="tenant_id" />
+                                        <!-- <pre>{{ t.value | json }}</pre> -->
+                                        <td><a title="Members" [routerLink]="['/admin/tenants/members', t.value.slug]">Members</a></td>
                                         <td><input type="checkbox" name="active" formControlName="active"/></td>
                                         <td><input type="text" name="name" formControlName="name" /></td>
                                         <td><input type="text" name="slug" formControlName="slug" /></td>
