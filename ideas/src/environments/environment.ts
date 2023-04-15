@@ -28,15 +28,14 @@ export const environment = {
   
   path_user_tenant_join: '/user/tenant/join',
 
-  // path_client_join: '/user/client/join',
-
-  // path_clients_fetch: '/clients/all',
-
   path_tenant_add: '/tenants/add',
   path_tenant_get: '/tenants/get',
   path_tenant_get_by_slug: '/tenants/get/slug',
   path_tenants_fetch: '/tenants/fetch',
-  path_tenants_members_fetch: '/tenants/members/fetch'
+  path_tenants_members_fetch: '/tenants/members/fetch',
+
+  path_inv_warehouses_fetch: '/inventory/warehouses',
+  path_inv_warehouses_add: '/inventory/warehouses/add'
 };
 
 /*
