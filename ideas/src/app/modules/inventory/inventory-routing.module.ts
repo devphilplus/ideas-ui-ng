@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/warehouses/warehouses.module').then(m => m.WarehousesModule) 
       },
       {
+        path: 'items',
+        loadChildren: () => import('./modules/items/items.module').then(m => m.ItemsModule)
+      },
+      {
         path: '**',
         component: DashboardComponent
       }
