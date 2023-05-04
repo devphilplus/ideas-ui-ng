@@ -6,7 +6,10 @@
                     Inventory
                 </a>
                 <mat-divider [vertical]="true"></mat-divider>
-                <button mat-button class="btn btn-inventory" aria-label="Inventory" [matMenuTriggerFor]="mnu_warehouses">
+                <button mat-button class="btn btn-inventory-warehouse" aria-label="Warehouses" [matMenuTriggerFor]="mnu_warehouses">
+                    Warehouses
+                </button>
+                <button mat-button class="btn btn-inventory-item" aria-label="Items" [matMenuTriggerFor]="mnu_items">
                     Warehouses
                 </button>
             </mat-toolbar>
@@ -14,6 +17,11 @@
                 <a mat-menu-item id="link-warehouses" title="Warehouses" class="link link-warehouses" [routerLink]="['/inventory/warehouses']">Warehouses</a>
                 <mat-divider></mat-divider>
                 <a mat-menu-item id="link link-warehouse-new" title="New Warehouse" class="link link-warehouse-new" [routerLink]="['/inventory/warehouses/new']">New Warehouse</a>
+            </mat-menu>
+            <mat-menu #mnu_items="matMenu">
+                <a mat-menu-item id="link-items" title="Items" class="link link-items" [routerLink]="['/inventory/items']">Items</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link link-item-new" title="New Item" class="link link-item-new" [routerLink]="['/inventory/items/new']">New Items</a>
             </mat-menu>
             <div class="router-content">
                 <router-outlet></router-outlet>
