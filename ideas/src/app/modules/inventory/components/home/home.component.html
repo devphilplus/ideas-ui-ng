@@ -10,19 +10,35 @@
                     Warehouses
                 </button>
                 <button mat-button class="btn btn-inventory-item" aria-label="Items" [matMenuTriggerFor]="mnu_items">
-                    Warehouses
+                    Items
+                </button>
+                <button mat-button class="btn btn-inventory-docs" aria-label="Documents" [matMenuTriggerFor]="mnu_docs">
+                    Documents
                 </button>
             </mat-toolbar>
+            
             <mat-menu #mnu_warehouses="matMenu">
                 <a mat-menu-item id="link-warehouses" title="Warehouses" class="link link-warehouses" [routerLink]="['/inventory/warehouses']">Warehouses</a>
+                <a mat-menu-item id="link-locations" title="locations" class="link link-locations" [routerLink]="['/inventory/locations']">Locations</a>
                 <mat-divider></mat-divider>
                 <a mat-menu-item id="link link-warehouse-new" title="New Warehouse" class="link link-warehouse-new" [routerLink]="['/inventory/warehouses/new']">New Warehouse</a>
+                <a mat-menu-item id="link link-locations-new" title="New Location" class="link link-locations-new" [routerLink]="['/inventory/locations/new']">New Location</a>
             </mat-menu>
+
             <mat-menu #mnu_items="matMenu">
                 <a mat-menu-item id="link-items" title="Items" class="link link-items" [routerLink]="['/inventory/items']">Items</a>
                 <mat-divider></mat-divider>
                 <a mat-menu-item id="link link-item-new" title="New Item" class="link link-item-new" [routerLink]="['/inventory/items/new']">New Items</a>
             </mat-menu>
+
+            <mat-menu #mnu_docs="matMenu">
+                <a mat-menu-item id="link-docs" title="Documents" class="link link-docs" [routerLink]="['/inventory/docs']">Item Transfers</a>
+                <a mat-menu-item id="link-docs" title="Documents" class="link link-docs" [routerLink]="['/inventory/docs']">Item Returns</a>
+                <a mat-menu-item id="link-docs" title="Documents" class="link link-docs" [routerLink]="['/inventory/docs']">Receive Materials</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item id="link link-item-new" title="New Item" class="link link-item-new" [routerLink]="['/inventory/docs/new']">New Items</a>
+            </mat-menu>
+            
             <div class="router-content">
                 <router-outlet></router-outlet>
             </div><!-- .router-content -->

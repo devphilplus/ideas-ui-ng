@@ -4,7 +4,28 @@
             <div class="container-form">
                 <form id="form-item" class="form" method="post" action="">
                     <fieldset>
-                        
+                        <mat-toolbar>
+                            <span>Items</span>
+                            <button mat-icon-button class="icon icon-save" aria-label="Save">
+                                <mat-icon>save</mat-icon>
+                            </button>
+                        </mat-toolbar>
+                    </fieldset>
+                    <fieldset>
+                        <div class="field-group">
+                            <label>Name</label>
+                            <input type="text" id="name" name="name" required class="field field-name" />
+                        </div><!-- .field-group -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="field-group">
+                            <label>SKU</label>
+                            <input type="text" id="sku" name="sku" required class="field field-sku" />
+                        </div><!-- .field-group -->
+                        <div class="field-group">
+                            <label>UPC</label>
+                            <input type="text" id="upc" name="upc" required class="field field-upc" />
+                        </div><!-- .field-group -->
                     </fieldset>
                 </form>
             </div><!-- .container-form -->

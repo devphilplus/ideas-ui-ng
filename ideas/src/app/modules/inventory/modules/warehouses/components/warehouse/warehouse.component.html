@@ -1,1 +1,36 @@
-<p>warehouse works!</p>
+<div class="component-inventory-warehouse">
+    <div class="container-content">
+        <div class="content">
+            <form id="warehouse" class="form-warehouse" method="post" action="">
+                <fieldset>
+                    <mat-toolbar>
+                        <span>Warehouses</span>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <button mat-icon-button class="icon icon-save" aria-label="Save">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                    </mat-toolbar>
+                </fieldset>
+                <fieldset>
+                    <div class="field-group">
+                        <label>Name</label>
+                        <input type="text" id="name" name="name" required class="field field-name" />
+                    </div><!-- .field-group -->
+                </fieldset>
+                <fieldset>
+                    <caption>Address</caption>
+                    <div class="field-group">
+                        <label>Street</label>
+                        <input type="text" id="street" name="street" required class="field field-street" />
+                    </div><!-- .field-group -->
+                    <div class="field-group">
+                        <label>Country</label>
+                        <select id="country" name="country" required class="field field-country">
+                            
+                        </select>
+                    </div><!-- .field-group -->
+                </fieldset>
+            </form>
+        </div><!-- .content -->
+    </div><!-- .container-content -->
+</div><!-- .component-inventory-warehouse -->
