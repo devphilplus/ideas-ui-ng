@@ -5,6 +5,14 @@
             <div class="container-form">
                 <form class="form-tenant" method="post" action="" [formGroup]="tenantForm" [class.enabled]="enabled" (ngSubmit)="save()">
                     <fieldset>
+                        <mat-toolbar>
+                            <caption>Location</caption>
+                            <button type="submit" mat-icon-button class="icon icon-save" aria-label="Save">
+                                <mat-icon>save</mat-icon>
+                            </button>
+                        </mat-toolbar>
+                    </fieldset>
+                    <fieldset>
                         <div class="messages">
                             <p>Please provide the details below to sign complete the registration</p>
                             <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>

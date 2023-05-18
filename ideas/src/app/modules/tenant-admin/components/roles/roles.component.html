@@ -4,6 +4,14 @@
             <div class="container-form">
                 <form class="form-role" method="post" action="" [formGroup]="roleForm" (ngSubmit)="submit">
                     <fieldset>
+                        <mat-toolbar>
+                            <caption>Location</caption>
+                            <button type="submit" mat-icon-button class="icon icon-save" aria-label="Save">
+                                <mat-icon>save</mat-icon>
+                            </button>
+                        </mat-toolbar>
+                    </fieldset>
+                    <fieldset>
                         <div class="messages">
                             <p>Please provide the details below to add a role to this tenant</p>
                             <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
@@ -22,9 +30,6 @@
                             <mat-hint>Description</mat-hint>
                             <mat-icon matSuffix>Description</mat-icon>
                         </mat-form-field>
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">Submit</button>
                     </fieldset>
                 </form>
             </div><!-- .container-form -->
