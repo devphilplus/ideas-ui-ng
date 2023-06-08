@@ -14,6 +14,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignOutComponent } from './components/sign-out/sign-out.component';
 import { CommonModule } from '@angular/common';
+import { ObjectSelectorComponent } from './components/object-selector/object-selector.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     NotFoundComponent,
     SignInComponent,
-    SignOutComponent
+    SignOutComponent,
+    ObjectSelectorComponent
   ],
   imports: [
     BrowserModule,
