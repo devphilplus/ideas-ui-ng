@@ -11,6 +11,9 @@
     <button mat-icon-button class="btn btn-nav-right" aria-label="Show notifications pane" (click)="$navright.toggle()">
       <mat-icon>comment</mat-icon>
     </button>
+    <button mat-icon-button class="btn btn-nav-selector" aria-label="temporary selector button" (click)="$navselector.toggle()">
+      <mat-icon>comment</mat-icon>
+    </button>
     <button mat-button class="btn btn-user" [attr.title]="user.name | titlecase" [attr.aria-label]="user.name" [matMenuTriggerFor]="mnu_settings">
       {{ user.name | titlecase }}
     </button>
@@ -85,6 +88,10 @@
           </div><!-- .message -->
         </div><!-- .container-message -->
       </div><!-- .container-notifications -->
+    </mat-sidenav>
+
+    <mat-sidenav class="nav-selector" #$navselector mode="over" position="end">
+      <app-object-selector></app-object-selector>
     </mat-sidenav>
 
     <mat-sidenav-content>
