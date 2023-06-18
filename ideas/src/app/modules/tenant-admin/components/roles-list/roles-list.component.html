@@ -1,1 +1,49 @@
-<p>roles-list works!</p>
+<div class="component-roles-list">
+    <div class="component-content">
+        <div class="content">
+            <form class="form-roles" method="post" action="" [formGroup]="rolesForm" (ngSubmit)="submit()">
+                <fieldset>
+                    <mat-toolbar>
+                        <caption>Roles</caption>
+                        <button type="submit" mat-icon-button class="icon icon-save" title="Save" aria-label="Save">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                        <button type="button" mat-icon-button class="icon icon-add" title="Add Permissions" aria-label="Add Permissions" (click)="add_permissions()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </mat-toolbar>
+                </fieldset>
+                <fieldset *ngIf="message != ''">
+                    <div class="messages">
+                        <p *ngIf="message != ''" [attr.class]="message_type" >{{ message }}</p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Roles List</legend>
+                    <table>
+                        <caption>Roles</caption>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div><!-- .content -->
+    </div><!-- .component-content -->
+</div><!-- .component-roles-list -->

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { TitleService } from './services/title.service';
 import { environment } from 'src/environments/environment';
 import { UserService } from './services/user.service';
@@ -21,7 +21,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   app_name = environment.app_name;
   current_tenant = 'Default';
@@ -63,7 +63,17 @@ export class AppComponent {
       }
     });
 
-    selection_service._set_selector_component(this.selector);
+    // selection_service._set_required_components(
+    //   this.navselector,
+    //   this.selector
+    // );
+  }
+
+  ngAfterViewInit(): void {
+    this.selection_service._set_required_components(
+      this.navselector,
+      this.selector
+    );
   }
 
   show_notification(
