@@ -11,7 +11,7 @@
     <button mat-icon-button class="btn btn-nav-right" aria-label="Show notifications pane" (click)="$navright.toggle()">
       <mat-icon>comment</mat-icon>
     </button>
-    <button mat-icon-button class="btn btn-nav-selector" aria-label="temporary selector button" (click)="$navselector.toggle()">
+    <button mat-icon-button class="btn btn-nav-selector" aria-label="temporary selector button" (click)="show_selector()">
       <mat-icon>comment</mat-icon>
     </button>
     <button mat-button class="btn btn-user" [attr.title]="user.name | titlecase" [attr.aria-label]="user.name" [matMenuTriggerFor]="mnu_settings">
@@ -90,14 +90,19 @@
       </div><!-- .container-notifications -->
     </mat-sidenav>
 
-    <mat-sidenav class="nav-selector" #$navselector mode="over" position="end">
-      <app-object-selector></app-object-selector>
-    </mat-sidenav>
-
     <mat-sidenav-content>
-      <div class="container-outlet">
-        <router-outlet></router-outlet>
-      </div><!-- .container-outlet -->
+
+      <mat-sidenav-container class="container-content-sidenav">
+        <mat-sidenav class="nav-selector" #$navselector mode="over" position="end">
+          <app-object-selector></app-object-selector>
+        </mat-sidenav>
+
+        <div class="container-outlet">
+          <router-outlet></router-outlet>
+        </div><!-- .container-outlet -->
+      </mat-sidenav-container><!-- .container-content-sidenav -->
+
+      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div><!-- #component-app -->

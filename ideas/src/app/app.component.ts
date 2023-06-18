@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TitleService } from './services/title.service';
 import { environment } from 'src/environments/environment';
 import { UserService } from './services/user.service';
@@ -11,6 +11,9 @@ import {
   // MatSnackBarHorizontalPosition,
   // MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { SelectionService } from './services/selection.service';
+import { ObjectSelectorComponent } from './components/object-selector/object-selector.component';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -27,11 +30,17 @@ export class AppComponent {
   current_tenant$: Observable<string> = new Observable<string>();
   messages: Array<Message> = [];
 
+
+  @ViewChild('$navselector') navselector!: MatSidenav;
+  @ViewChild('ObjectSelectorComponent') selector!: ObjectSelectorComponent;
+
+
   constructor(
     private title: TitleService,
     private user_service: UserService,
     private msg_service: MessageService,
-    private _notifier: MatSnackBar
+    private _notifier: MatSnackBar,
+    private selection_service: SelectionService
   ) {
     this.title.set_title('Welcome');
 
@@ -53,6 +62,8 @@ export class AppComponent {
         this.show_notification(r.text);
       }
     });
+
+    selection_service._set_selector_component(this.selector);
   }
 
   show_notification(
@@ -70,5 +81,10 @@ export class AppComponent {
   ): void {
     console.log('AppComponent::set_current_tenant', tenant_id);
     this.user_service.set_current_tenant(tenant_id);
+  }
+
+  show_selector(): void {
+    this.navselector.toggle();
+    this.selection_service.select();
   }
 }
