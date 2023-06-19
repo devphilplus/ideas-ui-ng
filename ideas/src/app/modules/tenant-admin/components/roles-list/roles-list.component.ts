@@ -4,13 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { SelectionService } from 'src/app/services/selection.service';
 import { TitleService } from 'src/app/services/title.service';
 import { RolesService } from '../../services/roles.service';
+import { SelectionClient } from 'src/app/classes/selection/selection-client';
+import { Item } from 'src/app/classes/selection/item';
 
 @Component({
   selector: 'app-roles-list',
   templateUrl: './roles-list.component.html',
   styleUrls: ['./roles-list.component.scss']
 })
-export class RolesListComponent implements OnInit {
+export class RolesListComponent implements OnInit, SelectionClient {
 
   enabled = true;
   message = '';
@@ -38,10 +40,15 @@ export class RolesListComponent implements OnInit {
     console.log('RolesListComponent::submit()');
   }
 
+  selected(items: Item[]): void {
+    console.log('RolesListComponent::selected()');
+  }
+
   add_permissions(): void {
     console.log('RolesComponent::add_permissions()');
     this.selection_service.select(
-      this.roles_service
+      this.roles_service,
+      this
     );
   }
 }

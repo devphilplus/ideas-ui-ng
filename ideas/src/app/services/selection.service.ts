@@ -3,6 +3,7 @@ import { ObjectSelectorComponent } from '../components/object-selector/object-se
 import { MatSidenav } from '@angular/material/sidenav';
 import { ItemService } from '../classes/selection/item-service';
 import { SelectionClient } from '../classes/selection/selection-client';
+import { Item } from '../classes/selection/item';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,12 @@ export class SelectionService {
   ) { }
 
   select(
-    itemService: ItemService
-    // selectionClient: SelectionClient
+    itemService: ItemService,
+    selectionClient: SelectionClient
   ): void {
     console.log('SelectionService::select()');
     
-    // this._selectionClient = selectionClient;
+    this._selectionClient = selectionClient;
     this._itemService = itemService;
 
     this._sidenav?.toggle();
@@ -44,5 +45,12 @@ export class SelectionService {
   ): void {
     console.log('SelectionService::_fetch()');
     this._itemService?.fetch(filter);
+  }
+
+  _selected(
+    items: Array<Item>
+  ): void {
+    console.log('SelectionService::_selected()');
+    this._selectionClient?.selected(items);
   }
 }
