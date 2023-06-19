@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SelectionService } from 'src/app/services/selection.service';
 import { TitleService } from 'src/app/services/title.service';
+import { RolesService } from '../../services/roles.service';
 
 @Component({
   selector: 'app-roles-list',
@@ -22,6 +23,7 @@ export class RolesListComponent implements OnInit {
 
   constructor(
     private title: TitleService,
+    private roles_service: RolesService,
     private selection_service: SelectionService,
     private route: ActivatedRoute
   ) {
@@ -38,6 +40,8 @@ export class RolesListComponent implements OnInit {
 
   add_permissions(): void {
     console.log('RolesComponent::add_permissions()');
-    this.selection_service.select();
+    this.selection_service.select(
+      this.roles_service
+    );
   }
 }
