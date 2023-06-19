@@ -7,28 +7,35 @@
                     <input type="search" id="search" name="search" matInput class="field-search"/>
                     <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
+                <button mat-icon-button class="btn btn-filter" (click)="filter()">
+                    <mat-icon>search</mat-icon>
+                </button>
             </form>
         </div><!-- .search -->
         <div class="browser">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="container-tbl">
+                <table>
+                    <caption>Items</caption>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- .container-tbl -->
         </div><!-- .browser -->
         <div class="selected-items">
             <table>
+                <caption>Selected</caption>
                 <thead>
                     <tr>
                         <th></th>

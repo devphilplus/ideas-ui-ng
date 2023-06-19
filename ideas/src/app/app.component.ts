@@ -95,6 +95,6 @@ export class AppComponent implements AfterViewInit {
 
   show_selector(): void {
     this.navselector.toggle();
-    this.selection_service.select();
+    // this.selection_service.select();
   }
 }
